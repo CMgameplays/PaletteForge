@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-CMG Forge — PaletteForge  |  app.py
-=====================================
+CMG Forge — PaletteForge  |  paletteforge.py
+=============================================
 Game palette extraction and management toolkit.
 
-LOCAL:      python app.py        → starts server, opens browser automatically
-PRODUCTION: gunicorn app:app     → Render / Railway / Fly.io / any WSGI host
+LOCAL:      python paletteforge.py        → starts server, opens browser automatically
+PRODUCTION: gunicorn paletteforge:app     → Render / Railway / Fly.io / any WSGI host
 
 Routes
 ------

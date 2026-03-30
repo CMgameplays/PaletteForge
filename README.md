@@ -75,7 +75,7 @@ pip install -r requirements.txt
 ## Running locally
 
 ```bash
-python app.py
+python paletteforge.py
 ```
 
 The server starts on `http://127.0.0.1:5000` and opens in your browser.
@@ -86,7 +86,7 @@ The server starts on `http://127.0.0.1:5000` and opens in your browser.
 
 ```
 paletteforge/
-├── app.py               # Flask app — routes and palette logic
+├── paletteforge.py      # Flask app — routes and palette logic
 ├── requirements.txt     # Python dependencies
 ├── templates/
 │   └── index.html       # UI (HTML + CSS + JS)
@@ -113,7 +113,7 @@ The app is production-ready with Gunicorn and can be deployed to any WSGI-compat
 Example `Procfile`:
 
 ```
-web: gunicorn app:app --workers 2 --timeout 120 --bind 0.0.0.0:$PORT
+web: gunicorn paletteforge:app --workers 2 --timeout 120 --bind 0.0.0.0:$PORT
 ```
 
 Simply connect your GitHub repository and deploy.
