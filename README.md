@@ -1,30 +1,45 @@
 # 🎨 PaletteForge
 
-PaletteForge is a lightweight web-based tool for extracting, generating, and visualizing color palettes from images. Built with Python and Flask, it provides a fast and intuitive way for developers, designers, and artists to work with color data directly in the browser.
+A lightweight, locally-hosted web app for extracting and generating color palettes from images. Built with Flask and Pillow — no cloud required, no data leaves your machine.
+
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python\&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-3.0%2B-black?logo=flask)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## 🚀 Features
+## Features
 
-* 🎯 Extract dominant colors from uploaded images
-* 🎨 Generate clean, usable color palettes
-* ⚡ Fast image processing using Pillow
-* 🌐 Simple and responsive web interface
-* 🛡️ Rate limiting for stability and abuse prevention
-* 📦 Lightweight and easy to deploy
-
----
-
-## 🛠️ Tech Stack
-
-* **Backend:** Python, Flask
-* **Image Processing:** Pillow
-* **Server:** Gunicorn
-* **Security:** Flask-Limiter
+| Tool                | What it does                                             |
+| ------------------- | -------------------------------------------------------- |
+| **Palette Extract** | Extract dominant colors from an uploaded image           |
+| **Palette Preview** | Display clean, usable color palettes                     |
+| **Color Utility**   | Generate colors ready for design & development workflows |
 
 ---
 
-## 📦 Installation
+## Requirements
+
+### Software
+
+| Requirement                                 | Version | Notes    |
+| ------------------------------------------- | ------- | -------- |
+| [Python](https://www.python.org/downloads/) | 3.11+   | Required |
+
+### Python packages
+
+All listed in `requirements.txt`:
+
+```
+flask>=3.0.0
+pillow>=10.0.0
+flask-limiter>=3.5.0
+gunicorn>=21.0.0
+```
+
+---
+
+## Installation
 
 ### 1. Clone the repository
 
@@ -33,132 +48,80 @@ git clone https://github.com/CMgameplays/PaletteForge.git
 cd PaletteForge
 ```
 
----
+### 2. Create and activate a virtual environment
 
-### 2. Create a virtual environment (recommended)
+**Windows:**
 
 ```bash
 python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+venv\Scripts\activate
 ```
 
----
+**macOS / Linux:**
 
-### 3. Install dependencies
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Python dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Or install manually:
-
-```bash
-pip install flask pillow flask-limiter gunicorn
-```
-
 ---
 
-## ▶️ Running the Application
-
-### Development mode
+## Running locally
 
 ```bash
 python app.py
 ```
 
-Open your browser at:
-
-```
-http://127.0.0.1:5000
-```
+The server starts on `http://127.0.0.1:5000` and opens in your browser.
 
 ---
 
-### Production mode (recommended)
-
-```bash
-gunicorn app:app
-```
-
----
-
-## 🌐 Deployment
-
-PaletteForge can be deployed on:
-
-* VPS (recommended)
-* Docker environments
-* Cloud platforms (Railway, Render, etc.)
-
-For production, it is recommended to use:
-
-* **NGINX** as a reverse proxy
-* **Gunicorn** as the application server
-
----
-
-## 📁 Project Structure
+## Project structure
 
 ```
-PaletteForge/
-│── app.py
-│── requirements.txt
-│── static/
-│── templates/
+paletteforge/
+├── app.py               # Flask app — routes and palette logic
+├── requirements.txt     # Python dependencies
+├── templates/
+│   └── index.html       # UI (HTML + CSS + JS)
+└── static/              # Static assets (if any)
 ```
 
 ---
 
-## ⚙️ Usage
+## API Routes
 
-1. Upload an image
-2. The app processes the image
-3. Extracted color palette is displayed
-4. Use the colors in your workflow
-
----
-
-## 🔒 Notes
-
-* File size limits may apply depending on server configuration
-* Rate limiting is enabled to prevent abuse
-* Temporary files may be used during processing
+| Method | Route          | Description                               |
+| ------ | -------------- | ----------------------------------------- |
+| `GET`  | `/`            | Main UI page                              |
+| `POST` | `/api/palette` | Extract color palette from uploaded image |
 
 ---
 
-## 🚧 Future Improvements
+## Deployment
 
-* Export palettes (JSON, CSS, etc.)
-* Advanced palette algorithms
-* UI/UX enhancements
-* Batch image processing
-* Integration with other CMG Forge tools
+The app is production-ready with Gunicorn and can be deployed to any WSGI-compatible host.
 
----
+**Render / Railway / Fly.io:**
 
-## 🤝 Contributing
+Example `Procfile`:
 
-Contributions are welcome.
+```
+web: gunicorn app:app --workers 2 --timeout 120 --bind 0.0.0.0:$PORT
+```
 
-* Fork the repository
-* Create a feature branch
-* Submit a pull request
+Simply connect your GitHub repository and deploy.
 
 ---
 
-## 📄 License
+## License
 
-This project is open-source and available under the MIT License.
+MIT — see [LICENSE](LICENSE) for details.
 
----
-
-## 🌍 CMG Forge Ecosystem
-
-PaletteForge is part of the **CMG Forge** ecosystem — a growing collection of developer tools designed to simplify workflows and boost productivity.
-
----
-
-## 👤 Author
-
-**CMG Forge**
-GitHub: https://github.com/CMgameplays
+© CMG Forge
