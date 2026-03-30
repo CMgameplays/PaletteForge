@@ -333,6 +333,73 @@ def api_swap_batch():
                      as_attachment=True, download_name="remapped_batch.zip")
 
 
+# ── Tab 4: Reduce ────────────────────────────────────────────────────────────
+
+@app.route("/api/reduce", methods=["POST"])
+@limiter.limit("20/minute")
+def api_reduce():
+    file = request.files.get("image")
+    if not file or not file.filename:
+        return jsonify(error="No image uploaded."), 400
+
+    if file.content_type and file.content_type not in ALLOWED_MIME:
+        return jsonify(error="Unsupported file type. Please upload PNG, JPG, WEBP, or GIF."), 400
+
+    try:
+        colors = max(2, min(256, int(request.form.get("colors", 16))))
+    except (ValueError, TypeError):
+        colors = 16
+
+    dither_mode = request.form.get("dither", "none").lower()
+    dither_map = {
+        "none":  Image.Dither.NONE,
+        "floyd": Image.Dither.FLOYDSTEINBERG,
+        "bayer": Image.Dither.ORDERED,
+    }
+    dither = dither_map.get(dither_mode, Image.Dither.NONE)
+
+    try:
+        img = _open_image(file.stream)
+    except Exception:
+        return jsonify(error="Could not open image. Please upload a valid PNG, JPG, WEBP, or GIF."), 400
+
+    total = img.width * img.height
+
+    q     = img.quantize(colors=colors, dither=dither)
+    q_rgb = q.convert("RGB")
+
+    pixels    = list(q_rgb.getdata())
+    raw_counts = Counter(pixels)
+
+    palette = []
+    for (r, g, b), count in raw_counts.items():
+        h, _s, _v = _rgb_to_hsv(r, g, b)
+        palette.append({
+            "hex":        f"#{r:02x}{g:02x}{b:02x}",
+            "r":          r,
+            "g":          g,
+            "b":          b,
+            "count":      count,
+            "frequency":  round(count / total, 4),
+            "hue":        round(h, 2),
+            "brightness": round(0.299 * r + 0.587 * g + 0.114 * b, 2),
+        })
+    palette.sort(key=lambda c: -c["count"])
+
+    buf = io.BytesIO()
+    q_rgb.save(buf, "PNG")
+    image_b64 = base64.b64encode(buf.getvalue()).decode()
+    strip_b64 = base64.b64encode(_build_strip(palette)).decode()
+
+    return jsonify(
+        image_png=image_b64,
+        palette=palette,
+        strip_png=strip_b64,
+        total_pixels=total,
+        color_count=len(palette),
+    )
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # DEV SERVER
 # ══════════════════════════════════════════════════════════════════════════════

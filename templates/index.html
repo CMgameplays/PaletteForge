@@ -62,23 +62,17 @@
        HEADER
     ══════════════════════════════════════════════════════════ */
     header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      display: flex; align-items: center; gap: 14px;
       padding: 14px 28px;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
     }
 
     .logo {
       width: 36px; height: 36px;
       border: 2px solid var(--accent);
       display: grid; place-items: center;
-      font-size: 18px; color: var(--accent);
-      flex-shrink: 0;
+      font-size: 18px; color: var(--accent); flex-shrink: 0;
       box-shadow: 0 0 12px var(--accent-glow);
       font-family: var(--font-mono); font-weight: 700;
     }
@@ -96,7 +90,8 @@
     .header-badge {
       margin-left: auto;
       font-family: var(--font-mono); font-size: 11px;
-      color: var(--text-dim); border: 1px solid var(--border); padding: 3px 10px; letter-spacing: 1px;
+      color: var(--text-dim); border: 1px solid var(--border);
+      padding: 3px 10px; letter-spacing: 1px;
     }
 
     /* ══════════════════════════════════════════════════════════
@@ -107,7 +102,6 @@
       grid-template-columns: 380px 1fr;
       min-height: calc(100vh - 65px);
     }
-
     @media (max-width: 880px) { main { grid-template-columns: 1fr; } }
 
     /* ══════════════════════════════════════════════════════════
@@ -129,11 +123,11 @@
       background: transparent; border: none;
       border-right: 1px solid var(--border);
       color: var(--text-dim);
-      font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
-      cursor: pointer;
-      transition: color .15s, background .15s; position: relative;
+      font-family: var(--font-ui); font-size: 11px;
+      font-weight: 700; letter-spacing: 1.5px;
+      cursor: pointer; transition: color .15s, background .15s;
+      position: relative;
     }
-
     .tab-btn:last-child { border-right: none; }
     .tab-btn:hover { color: var(--text); background: var(--surface2); }
     .tab-btn.active { color: var(--accent); background: var(--surface2); }
@@ -147,7 +141,7 @@
 
     .controls-body { padding: 0 22px 40px; flex: 1; }
 
-    /* ── Section header ──────────────────────────────────────── */
+    /* ── Section header ──────────────────────────────────── */
     .sec {
       display: flex; align-items: center; gap: 10px;
       margin: 22px 0 14px;
@@ -155,7 +149,7 @@
     }
     .sec-line { flex: 1; height: 1px; background: var(--border); }
 
-    /* ── Drop zone ───────────────────────────────────────────── */
+    /* ── Drop zone ───────────────────────────────────────── */
     .drop-zone {
       border: 2px dashed var(--border-hi);
       padding: 26px 20px; text-align: center; cursor: pointer;
@@ -167,17 +161,12 @@
     }
     .drop-icon { font-size: 26px; display: block; margin-bottom: 10px; opacity: .5; }
     .drop-zone p { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-    .drop-sub  { font-size: 12px !important; color: var(--text-dim) !important; font-weight: 400 !important; }
-    .drop-fmts {
-      font-family: var(--font-mono); font-size: 10px !important;
-      color: var(--text-dim) !important; font-weight: 400 !important;
-      margin-top: 8px !important; letter-spacing: 1px;
-    }
-    .drop-zone.drop-sm { padding: 16px 20px; }
-    .drop-zone.drop-sm .drop-icon { font-size: 18px; margin-bottom: 6px; }
-    .drop-zone.drop-sm p { font-size: 13px; }
+    .drop-sub { font-size: 12px !important; color: var(--text-dim) !important; font-weight: 400 !important; }
+    .drop-zone.drop-sm { padding: 14px 20px; }
+    .drop-zone.drop-sm .drop-icon { font-size: 18px; margin-bottom: 5px; }
+    .drop-zone.drop-sm p { font-size: 12px; }
 
-    /* ── File badge ──────────────────────────────────────────── */
+    /* ── File badge ──────────────────────────────────────── */
     .file-badge {
       display: none; align-items: center; gap: 10px;
       padding: 7px 12px;
@@ -189,12 +178,12 @@
     .file-badge-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .file-clear {
       background: transparent; border: none; color: var(--text-dim);
-      cursor: pointer; font-size: 14px; padding: 0 2px; line-height: 1; flex-shrink: 0;
-      transition: color .15s;
+      cursor: pointer; font-size: 14px; padding: 0 2px; line-height: 1;
+      flex-shrink: 0; transition: color .15s;
     }
     .file-clear:hover { color: #ff4060; }
 
-    /* ── Inputs ──────────────────────────────────────────────── */
+    /* ── Inputs ──────────────────────────────────────────── */
     .field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
     .field label { font-size: 11px; letter-spacing: 1.5px; color: var(--text-dim); font-weight: 600; }
 
@@ -216,7 +205,7 @@
     }
     input[type="color"]:focus, input[type="color"]:hover { border-color: var(--accent); }
 
-    /* ── Segmented control ───────────────────────────────────── */
+    /* ── Segmented control ───────────────────────────────── */
     .seg-group {
       display: grid; grid-template-columns: 1fr 1fr 1fr;
       border: 1px solid var(--border); margin-bottom: 14px;
@@ -224,14 +213,15 @@
     .seg-btn {
       padding: 8px 0; background: transparent; border: none;
       border-right: 1px solid var(--border);
-      color: var(--text-dim); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      color: var(--text-dim); font-family: var(--font-ui);
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
       cursor: pointer; transition: color .15s, background .15s;
     }
     .seg-btn:last-child { border-right: none; }
     .seg-btn:hover { color: var(--text); background: var(--surface2); }
     .seg-btn.active { color: var(--accent); background: var(--accent-08); }
 
-    /* ── Primary button ──────────────────────────────────────── */
+    /* ── Primary button ──────────────────────────────────── */
     .btn-main {
       width: 100%; margin-top: 8px; padding: 13px 0;
       background: transparent; border: 1px solid var(--accent);
@@ -255,11 +245,10 @@
       animation: dots 1.2s steps(3, end) infinite;
     }
     @keyframes dots {
-      0%   { content: ''; } 33%  { content: '.'; }
-      66%  { content: '..'; } 100% { content: '...'; }
+      0% { content: ''; } 33% { content: '.'; } 66% { content: '..'; } 100% { content: '...'; }
     }
 
-    /* ── Export button grid ──────────────────────────────────── */
+    /* ── Export button grid ──────────────────────────────── */
     .export-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
     .btn-export {
@@ -273,7 +262,7 @@
     }
     .btn-export:disabled { opacity: .3; cursor: not-allowed; }
 
-    /* ── Small action button ─────────────────────────────────── */
+    /* ── Small button ────────────────────────────────────── */
     .btn-sm {
       background: transparent; border: 1px solid var(--border-hi); color: var(--text-dim);
       font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
@@ -283,7 +272,7 @@
     .btn-sm:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
     .btn-sm:disabled { opacity: .3; cursor: not-allowed; }
 
-    /* ── Coming-soon ─────────────────────────────────────────── */
+    /* ── Coming soon ─────────────────────────────────────── */
     .coming-soon {
       flex: 1; display: flex; flex-direction: column;
       align-items: center; justify-content: center;
@@ -293,95 +282,144 @@
     .coming-soon .cs-icon { font-size: 32px; opacity: .25; }
 
     /* ══════════════════════════════════════════════════════════
-       SWAP TAB — LEFT PANEL SPECIFIC
+       SWAP TAB — left panel
     ══════════════════════════════════════════════════════════ */
-
-    /* Pair builder */
     .pair-builder {
       padding: 12px; border: 1px solid var(--border);
       background: var(--surface2); margin-bottom: 12px;
     }
-
     .pair-builder-hint {
       font-size: 11px; color: var(--text-dim); font-weight: 600;
       letter-spacing: 1px; margin-bottom: 10px;
     }
-
     .pair-builder-hint.has-source { color: var(--text); }
-
-    .pair-builder-row {
-      display: flex; align-items: center; gap: 8px;
-    }
-
+    .pair-builder-row { display: flex; align-items: center; gap: 8px; }
     .pair-color-box {
       width: 36px; height: 36px;
       border: 1px solid var(--border-hi);
       flex-shrink: 0; display: grid; place-items: center;
     }
-
     .pair-color-box.empty {
       background: repeating-linear-gradient(
         45deg, var(--surface3) 0px, var(--surface3) 4px,
-        var(--surface2) 4px, var(--surface2) 8px
-      );
+        var(--surface2) 4px, var(--surface2) 8px);
     }
-
     .pair-arrow-icon { font-size: 14px; color: var(--text-dim); flex-shrink: 0; }
-
     .btn-add-pair {
       flex: 1; padding: 9px 0;
       background: transparent; border: 1px solid var(--border-hi); color: var(--text-dim);
       font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
       cursor: pointer; transition: border-color .15s, color .15s, box-shadow .15s;
     }
-    .btn-add-pair.ready {
-      border-color: var(--accent); color: var(--accent);
-    }
+    .btn-add-pair.ready { border-color: var(--accent); color: var(--accent); }
     .btn-add-pair.ready:hover { box-shadow: 0 0 8px var(--accent-glow); background: var(--accent-08); }
-
-    /* Pair list */
     .pairs-list { margin-bottom: 10px; }
-
     .pair-item {
       display: flex; align-items: center; gap: 8px;
       padding: 6px 8px; border: 1px solid var(--border);
       margin-bottom: 5px; background: var(--surface2);
     }
-
-    .pair-swatch {
-      width: 22px; height: 22px;
-      border: 1px solid rgba(255,255,255,.1);
-      flex-shrink: 0;
-    }
-
-    .pair-hex {
-      font-family: var(--font-mono); font-size: 10px; color: var(--text);
-      flex: 1; white-space: nowrap;
-    }
-
+    .pair-swatch { width: 22px; height: 22px; border: 1px solid rgba(255,255,255,.1); flex-shrink: 0; }
+    .pair-hex { font-family: var(--font-mono); font-size: 10px; color: var(--text); flex: 1; white-space: nowrap; }
     .pair-mid { font-size: 12px; color: var(--text-dim); flex-shrink: 0; }
-
     .pair-remove {
       background: transparent; border: none; color: var(--text-dim);
       cursor: pointer; font-size: 13px; padding: 1px 4px; line-height: 1;
       flex-shrink: 0; transition: color .15s; margin-left: auto;
     }
     .pair-remove:hover { color: #ff4060; }
-
     .pairs-empty-note {
       font-size: 11px; color: var(--text-dim); text-align: center;
       padding: 10px; border: 1px dashed var(--border); letter-spacing: .5px;
     }
 
     /* ══════════════════════════════════════════════════════════
+       BUILD TAB — left panel
+    ══════════════════════════════════════════════════════════ */
+    .preset-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6px; margin-bottom: 10px;
+    }
+    .btn-preset {
+      padding: 8px 10px; background: transparent;
+      border: 1px solid var(--border-hi); color: var(--text-dim);
+      font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: border-color .15s, color .15s, background .15s;
+    }
+    .btn-preset:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-08); }
+    .preset-n {
+      font-family: var(--font-mono); font-size: 10px; color: var(--text-dim);
+      background: var(--surface3); padding: 1px 5px;
+    }
+    .btn-preset:hover .preset-n { color: var(--accent); }
+
+    .add-color-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .add-color-info { flex: 1; }
+    .add-color-hex { font-family: var(--font-mono); font-size: 12px; color: var(--text-bright); }
+    .btn-add-color {
+      padding: 9px 14px; background: transparent;
+      border: 1px solid var(--accent); color: var(--accent);
+      font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      cursor: pointer; white-space: nowrap; flex-shrink: 0;
+      transition: box-shadow .15s, background .15s;
+    }
+    .btn-add-color:hover { box-shadow: 0 0 10px var(--accent-glow); background: var(--accent-08); }
+
+    .harmony-area { padding: 4px 0 4px; }
+    .harmony-group { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+    .harmony-tag {
+      font-size: 9px; font-weight: 700; letter-spacing: 1px;
+      color: var(--text-dim); width: 50px; flex-shrink: 0;
+    }
+    .harmony-swatch {
+      width: 22px; height: 22px;
+      border: 1px solid rgba(255,255,255,.1);
+      cursor: pointer;
+      transition: transform .1s, border-color .15s;
+      flex-shrink: 0; position: relative;
+    }
+    .harmony-swatch:hover { transform: scale(1.2); border-color: var(--accent); z-index: 2; }
+    /* tooltip via attr */
+    .harmony-swatch::after {
+      content: attr(title);
+      position: absolute; bottom: calc(100% + 5px); left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface3); border: 1px solid var(--border-hi);
+      padding: 2px 6px; font-size: 9px; font-family: var(--font-mono);
+      color: var(--text-bright); white-space: nowrap; z-index: 100;
+      pointer-events: none; opacity: 0; transition: opacity .1s;
+    }
+    .harmony-swatch:hover::after { opacity: 1; }
+    .harmony-swatch.in-palette::before {
+      content: '✓'; position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: white;
+      text-shadow: 0 0 4px rgba(0,0,0,.9);
+      background: rgba(0,0,0,.3);
+    }
+
+    .limit-row { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+    .btn-limit {
+      width: 48px; padding: 8px 0;
+      background: transparent; border: 1px solid var(--border-hi);
+      color: var(--text-dim); font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+      cursor: pointer; transition: border-color .15s, color .15s, box-shadow .15s;
+    }
+    .btn-limit:hover {
+      border-color: var(--accent); color: var(--accent); box-shadow: 0 0 8px var(--accent-glow);
+    }
+    .limit-current { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); margin-left: auto; }
+
+    /* ══════════════════════════════════════════════════════════
        PREVIEW PANEL (right)
     ══════════════════════════════════════════════════════════ */
     .preview-panel { display: flex; flex-direction: column; overflow: hidden; }
-
     .preview-tab-section { display: none; flex-direction: column; flex: 1; overflow: hidden; }
     .preview-tab-section.active { display: flex; }
 
-    /* ── Shared empty state ──────────────────────────────────── */
+    /* Shared empty state */
     .empty-state {
       flex: 1; display: flex; flex-direction: column;
       align-items: center; justify-content: center; gap: 10px; color: var(--text-dim);
@@ -390,7 +428,7 @@
     .empty-state p { font-size: 14px; font-weight: 600; color: var(--text-dim); letter-spacing: .5px; }
     .empty-state .empty-sub { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px; }
 
-    /* ── Spinner ─────────────────────────────────────────────── */
+    /* Spinner */
     .spinner-wrap {
       flex: 1; display: flex; align-items: center; justify-content: center;
       flex-direction: column; gap: 16px;
@@ -403,7 +441,7 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     .spinner-label { font-size: 11px; letter-spacing: 2px; color: var(--text-dim); font-weight: 700; }
 
-    /* ── Shared results bar ──────────────────────────────────── */
+    /* Shared results bar */
     .results-bar {
       display: flex; align-items: center; gap: 16px;
       padding: 18px 28px 14px; border-bottom: 1px solid var(--border); flex-shrink: 0;
@@ -422,7 +460,7 @@
     .meta-sub span { color: var(--accent); }
 
     /* ══════════════════════════════════════════════════════════
-       EXTRACT TAB — right panel
+       EXTRACT tab — right panel
     ══════════════════════════════════════════════════════════ */
     .results { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
@@ -440,7 +478,6 @@
       font-family: var(--font-mono); font-size: 11px; color: var(--accent);
       border: 1px solid var(--accent-20); padding: 2px 8px;
     }
-
     .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 8px; }
 
     .swatch-card {
@@ -455,7 +492,6 @@
     .swatch-info { padding: 5px 7px; background: var(--surface2); }
     .swatch-hex { display: block; font-family: var(--font-mono); font-size: 10px; color: var(--text-bright); letter-spacing: .5px; line-height: 1.4; }
     .swatch-pct { display: block; font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); }
-
     .swatch-card::after {
       content: 'COPY'; position: absolute; top: 4px; right: 4px;
       font-size: 9px; font-weight: 700; letter-spacing: 1px;
@@ -466,10 +502,8 @@
     .swatch-card.copied::after { content: '✓'; color: #4ade80; opacity: 1; }
 
     /* ══════════════════════════════════════════════════════════
-       SWAP TAB — right panel
+       SWAP tab — right panel
     ══════════════════════════════════════════════════════════ */
-
-    /* Source palette row */
     .swap-palette-wrap {
       padding: 14px 28px; border-bottom: 1px solid var(--border); flex-shrink: 0;
     }
@@ -477,7 +511,6 @@
       font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--text-dim); margin-bottom: 10px;
     }
     .swap-swatch-row { display: flex; flex-wrap: wrap; gap: 6px; }
-
     .swap-swatch {
       width: 30px; height: 30px;
       border: 2px solid transparent; cursor: pointer;
@@ -490,26 +523,20 @@
     .swap-swatch.mapped::after {
       content: '✓'; position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
-      font-size: 11px; color: #fff; font-weight: 700;
-      text-shadow: 0 0 4px rgba(0,0,0,1);
+      font-size: 11px; color: #fff; font-weight: 700; text-shadow: 0 0 4px rgba(0,0,0,1);
     }
 
-    /* Canvas preview area */
-    .swap-canvas-area {
-      flex: 1; display: flex; gap: 0; min-height: 0; overflow: hidden;
-    }
-
+    /* Shared canvas area (swap + build test) */
+    .swap-canvas-area { flex: 1; display: flex; gap: 0; min-height: 0; overflow: hidden; }
     .swap-canvas-col {
       flex: 1; display: flex; flex-direction: column;
       border-left: 1px solid var(--border); min-width: 0;
     }
     .swap-canvas-col:first-child { border-left: none; }
-
     .swap-canvas-label {
       font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--text-dim);
       padding: 10px 16px; border-bottom: 1px solid var(--border); flex-shrink: 0;
     }
-
     .swap-canvas-wrap {
       flex: 1; display: flex; align-items: center; justify-content: center;
       padding: 16px; min-height: 0;
@@ -522,14 +549,83 @@
       background-size: 18px 18px;
       background-position: 0 0, 0 9px, 9px -9px, -9px 0;
     }
-
-    .swap-canvas-wrap canvas {
+    .swap-canvas-wrap canvas,
+    .swap-canvas-wrap img {
       max-width: 100%; max-height: 100%;
       image-rendering: pixelated; display: block;
       border: 1px solid var(--border-hi);
     }
 
-    /* ── Toast ───────────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       REDUCE tab — right panel
+    ══════════════════════════════════════════════════════════ */
+    .reduce-compare {
+      display: flex; gap: 8px; flex-shrink: 0;
+      padding: 14px 28px 0; width: 100%;
+    }
+    .compare-col {
+      flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0;
+    }
+    .compare-col .swap-canvas-wrap { height: 200px; flex: unset; }
+    .compare-label {
+      font-size: 10px; letter-spacing: 2px; font-weight: 700;
+      color: var(--text-dim); text-align: center;
+    }
+    .reduce-strip-wrap {
+      padding: 14px 28px 0; flex-shrink: 0;
+    }
+    .reduce-strip-wrap .palette-strip { max-width: 100%; height: 36px; image-rendering: pixelated; display: block; }
+    .reduce-swatches { flex: 1; overflow-y: auto; padding: 14px 28px 24px; }
+
+    /* ══════════════════════════════════════════════════════════
+       BUILD tab — right panel
+    ══════════════════════════════════════════════════════════ */
+    .build-header-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 28px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+    }
+    .build-header-left { display: flex; flex-direction: column; gap: 2px; }
+    .build-header-title { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--text-dim); }
+    .build-header-count { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+
+    .build-palette-area { flex: 1; overflow-y: auto; padding: 18px 28px 24px; }
+    .build-swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(68px, 1fr)); gap: 8px; }
+
+    .build-swatch {
+      display: flex; flex-direction: column;
+      border: 2px solid var(--border); cursor: pointer;
+      transition: border-color .15s, transform .1s, box-shadow .15s;
+      position: relative; overflow: visible;
+    }
+    .build-swatch:hover { border-color: var(--border-hi); transform: translateY(-2px); }
+    .build-swatch.selected { border-color: var(--accent); box-shadow: 0 0 14px var(--accent-glow); }
+    .build-swatch-color { height: 58px; width: 100%; }
+    .build-swatch-hex {
+      padding: 4px 5px; font-family: var(--font-mono); font-size: 9px;
+      color: var(--text-dim); background: var(--surface2); text-align: center; line-height: 1.2;
+    }
+    .build-swatch:hover .build-swatch-hex,
+    .build-swatch.selected .build-swatch-hex { color: var(--accent); }
+    .build-swatch-remove {
+      position: absolute; top: -8px; right: -8px;
+      width: 18px; height: 18px;
+      background: #ff4060; border: none;
+      color: white; font-size: 10px; font-weight: 700;
+      cursor: pointer; display: none; place-items: center;
+      border-radius: 50%; z-index: 10; line-height: 1;
+      transition: background .15s;
+    }
+    .build-swatch:hover .build-swatch-remove { display: grid; }
+    .build-swatch-remove:hover { background: #ff0030; }
+
+    .build-test-section {
+      flex-shrink: 0; border-top: 1px solid var(--border);
+    }
+    .build-test-canvases {
+      display: flex; height: 200px;
+    }
+
+    /* ── Toast ───────────────────────────────────────────── */
     .toast {
       position: fixed; bottom: 28px; left: 50%;
       transform: translateX(-50%) translateY(20px);
@@ -543,7 +639,7 @@
 </head>
 <body>
 
-  <!-- ── Header ─────────────────────────────────────────────────── -->
+  <!-- ── Header ──────────────────────────────────────────────── -->
   <header>
     <div class="logo">P</div>
     <div class="header-title">
@@ -569,28 +665,23 @@
       <!-- ── Tab 1: Extract ───────────────────────────────── -->
       <div class="tab-panel active" id="panel-extract">
         <div class="controls-body">
-
           <div class="sec"><span>UPLOAD IMAGE</span><span class="sec-line"></span></div>
-
           <div class="drop-zone" id="drop-zone">
             <span class="drop-icon">⬡</span>
             <p>Drop image here or click to browse</p>
             <p class="drop-sub">PNG · JPG · WEBP · GIF</p>
           </div>
           <input type="file" id="file-input" accept="image/png,image/jpeg,image/webp,image/gif" style="display:none" />
-
           <div class="file-badge" id="file-badge">
             <span class="file-badge-name" id="file-badge-name"></span>
             <button class="file-clear" id="file-clear">✕</button>
           </div>
 
           <div class="sec"><span>OPTIONS</span><span class="sec-line"></span></div>
-
           <div class="field">
             <label>MAX COLORS (1 – 256)</label>
             <input type="number" id="max-colors" value="32" min="1" max="256" />
           </div>
-
           <div class="field">
             <label>SORT BY</label>
             <div class="seg-group">
@@ -599,43 +690,36 @@
               <button class="seg-btn"        data-sort="brightness">LIGHT</button>
             </div>
           </div>
-
           <button class="btn-main" id="btn-extract" disabled>
             <span class="lbl">EXTRACT PALETTE</span>
           </button>
 
           <div class="sec"><span>EXPORT</span><span class="sec-line"></span></div>
-
           <div class="export-row">
             <button class="btn-export" data-export="png"  disabled>PNG STRIP</button>
             <button class="btn-export" data-export="gpl"  disabled>GIMP .GPL</button>
             <button class="btn-export" data-export="hex"  disabled>.HEX LIST</button>
             <button class="btn-export" data-export="json" disabled>JSON</button>
           </div>
-
         </div>
       </div>
 
       <!-- ── Tab 2: Swap ──────────────────────────────────── -->
       <div class="tab-panel" id="panel-swap">
         <div class="controls-body">
-
           <div class="sec"><span>UPLOAD IMAGE</span><span class="sec-line"></span></div>
-
           <div class="drop-zone" id="swap-drop-zone">
             <span class="drop-icon">⇄</span>
             <p>Drop image here or click to browse</p>
             <p class="drop-sub">PNG · JPG · WEBP · GIF</p>
           </div>
           <input type="file" id="swap-file-input" accept="image/png,image/jpeg,image/webp,image/gif" style="display:none" />
-
           <div class="file-badge" id="swap-file-badge">
             <span class="file-badge-name" id="swap-file-badge-name"></span>
             <button class="file-clear" id="swap-file-clear">✕</button>
           </div>
 
           <div class="sec"><span>REMAP PAIRS</span><span class="sec-line"></span></div>
-
           <div class="pair-builder">
             <div class="pair-builder-hint" id="pair-builder-hint">← Click a color swatch to select source</div>
             <div class="pair-builder-row">
@@ -645,75 +729,152 @@
               <button class="btn-add-pair" id="btn-add-pair">ADD</button>
             </div>
           </div>
-
           <div class="pairs-list" id="pairs-list">
             <div class="pairs-empty-note" id="pairs-empty-note">No pairs yet</div>
           </div>
-
           <button class="btn-sm" id="btn-clear-pairs" disabled style="width:100%;margin-bottom:6px">CLEAR ALL PAIRS</button>
 
           <div class="sec"><span>EXPORT</span><span class="sec-line"></span></div>
-
           <button class="btn-main" id="btn-export-swap" disabled>
             <span class="lbl">EXPORT REMAPPED IMAGE</span>
           </button>
 
           <div class="sec"><span>BATCH MODE</span><span class="sec-line"></span></div>
-
           <div class="drop-zone drop-sm" id="batch-drop-zone">
             <span class="drop-icon">⊞</span>
             <p>Drop ZIP of sprites here</p>
             <p class="drop-sub">Apply remap to all images in ZIP</p>
           </div>
           <input type="file" id="batch-file-input" accept=".zip,application/zip" style="display:none" />
-
           <div class="file-badge" id="batch-file-badge">
             <span class="file-badge-name" id="batch-file-badge-name"></span>
             <button class="file-clear" id="batch-file-clear">✕</button>
           </div>
-
           <button class="btn-main" id="btn-export-batch" disabled style="margin-top:0">
             <span class="lbl">EXPORT BATCH ZIP</span>
           </button>
-
         </div>
       </div>
 
-      <!-- ── Tab 3: Build (placeholder) ──────────────────── -->
+      <!-- ── Tab 3: Build ─────────────────────────────────── -->
       <div class="tab-panel" id="panel-build">
-        <div class="coming-soon">
-          <span class="cs-icon">⊞</span>BUILD — COMING SOON
+        <div class="controls-body">
+
+          <div class="sec"><span>PRESETS</span><span class="sec-line"></span></div>
+          <div class="preset-grid">
+            <button class="btn-preset" data-preset="PICO-8">PICO-8 <span class="preset-n">16</span></button>
+            <button class="btn-preset" data-preset="GAMEBOY">GAMEBOY <span class="preset-n">4</span></button>
+            <button class="btn-preset" data-preset="NES">NES <span class="preset-n">54</span></button>
+            <button class="btn-preset" data-preset="ENDESGA-32">ENDESGA <span class="preset-n">32</span></button>
+          </div>
+          <button class="btn-sm" id="btn-load-extract" style="width:100%;margin-bottom:4px">LOAD FROM EXTRACT TAB</button>
+
+          <div class="sec"><span>ADD COLOR</span><span class="sec-line"></span></div>
+          <div class="add-color-row">
+            <input type="color" id="build-color-picker" value="#ff004d" />
+            <div class="add-color-info">
+              <span class="add-color-hex" id="add-color-hex">#ff004d</span>
+            </div>
+            <button class="btn-add-color" id="btn-add-color">+ ADD</button>
+          </div>
+          <div class="harmony-area" id="harmony-area"></div>
+
+          <div class="sec"><span>FORCE LIMIT</span><span class="sec-line"></span></div>
+          <div class="limit-row">
+            <button class="btn-limit" data-limit="8">8</button>
+            <button class="btn-limit" data-limit="16">16</button>
+            <button class="btn-limit" data-limit="32">32</button>
+            <span class="limit-current" id="limit-current">0 colors</span>
+          </div>
+
+          <div class="sec"><span>TEST IMAGE</span><span class="sec-line"></span></div>
+          <div class="drop-zone drop-sm" id="test-drop-zone">
+            <span class="drop-icon">⬛</span>
+            <p>Drop test image here</p>
+            <p class="drop-sub">Preview image forced onto this palette</p>
+          </div>
+          <input type="file" id="test-file-input" accept="image/png,image/jpeg,image/webp,image/gif" style="display:none" />
+          <div class="file-badge" id="test-file-badge">
+            <span class="file-badge-name" id="test-file-badge-name"></span>
+            <button class="file-clear" id="test-file-clear">✕</button>
+          </div>
+
+          <div class="sec"><span>EXPORT</span><span class="sec-line"></span></div>
+          <div class="export-row">
+            <button class="btn-export" data-build-export="png"  disabled>PNG STRIP</button>
+            <button class="btn-export" data-build-export="gpl"  disabled>GIMP .GPL</button>
+            <button class="btn-export" data-build-export="hex"  disabled>.HEX LIST</button>
+            <button class="btn-export" data-build-export="json" disabled>JSON</button>
+          </div>
+
         </div>
       </div>
 
-      <!-- ── Tab 4: Reduce (placeholder) ─────────────────── -->
+      <!-- ── Tab 4: Reduce ────────────────────────────────── -->
       <div class="tab-panel" id="panel-reduce">
-        <div class="coming-soon">
-          <span class="cs-icon">▽</span>REDUCE — COMING SOON
+        <div class="controls-body">
+
+          <div class="drop-zone" id="red-drop-zone">
+            <input type="file" id="red-file-input" accept="image/*" style="display:none" />
+            <div class="dz-icon">↓</div>
+            <div class="dz-label">DROP IMAGE or <span class="dz-link">BROWSE</span></div>
+            <div class="dz-sub">PNG · JPG · WEBP · GIF — max 50 MB</div>
+            <div class="file-badge" id="red-file-badge">
+              <span class="file-badge-name" id="red-file-badge-name"></span>
+              <button class="file-badge-clear" id="red-file-clear">✕</button>
+            </div>
+          </div>
+
+          <div class="sec"><span>OPTIONS</span><span class="sec-line"></span></div>
+
+          <div class="field">
+            <label>TARGET COLORS (2 – 256)</label>
+            <input type="number" id="red-colors" value="16" min="2" max="256" />
+          </div>
+
+          <div class="field">
+            <label>DITHERING</label>
+            <div class="seg-group" id="red-dither-ctrl">
+              <button class="seg-btn active" data-dither="none">NONE</button>
+              <button class="seg-btn"        data-dither="floyd">FLOYD-S</button>
+              <button class="seg-btn"        data-dither="bayer">BAYER</button>
+            </div>
+          </div>
+
+          <button class="btn-primary" id="btn-reduce" disabled>REDUCE</button>
+
+          <div id="red-export-row" style="display:none">
+            <div class="sec" style="margin-top:18px"><span>EXPORT</span><span class="sec-line"></span></div>
+            <button class="btn-export" id="btn-red-download" style="margin-bottom:8px">DOWNLOAD PNG</button>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <button class="btn-export" data-reduce-export="png"  disabled>STRIP PNG</button>
+              <button class="btn-export" data-reduce-export="gpl"  disabled>.GPL</button>
+              <button class="btn-export" data-reduce-export="hex"  disabled>.HEX LIST</button>
+              <button class="btn-export" data-reduce-export="json" disabled>JSON</button>
+            </div>
+          </div>
+
         </div>
       </div>
 
     </aside>
 
     <!-- ════════════════════════════════════════════════════════
-         PREVIEW PANEL (right) — one section per tab
+         PREVIEW PANEL (right)
     ════════════════════════════════════════════════════════ -->
     <div class="preview-panel">
 
       <!-- ── Extract preview ──────────────────────────────── -->
       <div id="preview-tab-extract" class="preview-tab-section active">
-
         <div class="empty-state" id="empty-state">
           <div class="empty-icon">⬡</div>
           <p>Upload an image to extract its palette</p>
           <p class="empty-sub">PNG · JPG · WEBP · GIF</p>
         </div>
-
         <div class="spinner-wrap" id="spinner-wrap" style="display:none">
           <div class="spinner"></div>
           <div class="spinner-label">EXTRACTING</div>
         </div>
-
         <div class="results" id="results" style="display:none">
           <div class="results-bar">
             <div class="thumb-wrap"><img id="thumb-img" src="" alt="" /></div>
@@ -734,25 +895,20 @@
             <div class="swatch-grid" id="swatch-grid"></div>
           </div>
         </div>
-
-      </div><!-- /preview-tab-extract -->
+      </div>
 
       <!-- ── Swap preview ──────────────────────────────────── -->
       <div id="preview-tab-swap" class="preview-tab-section">
-
         <div class="empty-state" id="swap-empty">
           <div class="empty-icon">⇄</div>
           <p>Upload an image to start remapping</p>
           <p class="empty-sub">Pixel art · Sprites · Tilesets</p>
         </div>
-
         <div class="spinner-wrap" id="swap-spinner" style="display:none">
           <div class="spinner"></div>
           <div class="spinner-label">LOADING</div>
         </div>
-
         <div id="swap-loaded" style="display:none; flex-direction:column; flex:1; overflow:hidden">
-
           <div class="results-bar">
             <div class="thumb-wrap"><img id="swap-thumb" src="" alt="" /></div>
             <div class="results-meta">
@@ -763,47 +919,104 @@
               </div>
             </div>
           </div>
-
-          <!-- Source palette for selection -->
           <div class="swap-palette-wrap">
             <div class="swap-section-label">CLICK A COLOR TO SELECT AS SOURCE</div>
             <div class="swap-swatch-row" id="swap-palette-row"></div>
           </div>
-
-          <!-- Side-by-side canvas -->
           <div class="swap-canvas-area">
             <div class="swap-canvas-col">
               <div class="swap-canvas-label">ORIGINAL</div>
-              <div class="swap-canvas-wrap">
-                <canvas id="swap-canvas-before"></canvas>
-              </div>
+              <div class="swap-canvas-wrap"><canvas id="swap-canvas-before"></canvas></div>
             </div>
             <div class="swap-canvas-col">
               <div class="swap-canvas-label">REMAPPED</div>
-              <div class="swap-canvas-wrap">
-                <canvas id="swap-canvas-after"></canvas>
+              <div class="swap-canvas-wrap"><canvas id="swap-canvas-after"></canvas></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Build preview ─────────────────────────────────── -->
+      <div id="preview-tab-build" class="preview-tab-section">
+        <div class="empty-state" id="build-empty">
+          <div class="empty-icon">⊞</div>
+          <p>Start building your palette</p>
+          <p class="empty-sub">Load a preset or add colors manually</p>
+        </div>
+        <div id="build-loaded" style="display:none; flex-direction:column; flex:1; overflow:hidden">
+          <div class="build-header-bar">
+            <div class="build-header-left">
+              <div class="build-header-title">PALETTE BUILDER</div>
+              <div class="build-header-count"><span id="build-color-count">0</span> colors</div>
+            </div>
+            <button class="btn-sm" id="btn-clear-palette">CLEAR ALL</button>
+          </div>
+          <div class="build-palette-area">
+            <div class="build-swatch-grid" id="build-swatch-grid"></div>
+          </div>
+          <div class="build-test-section" id="build-test-section" style="display:none">
+            <div class="build-test-canvases">
+              <div class="swap-canvas-col">
+                <div class="swap-canvas-label">TEST IMAGE</div>
+                <div class="swap-canvas-wrap"><canvas id="test-canvas-before"></canvas></div>
               </div>
+              <div class="swap-canvas-col">
+                <div class="swap-canvas-label">FORCED TO PALETTE</div>
+                <div class="swap-canvas-wrap"><canvas id="test-canvas-after"></canvas></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Reduce preview ───────────────────────────────── -->
+      <div id="preview-tab-reduce" class="preview-tab-section">
+
+        <div id="red-empty" class="empty-state">
+          <div class="empty-icon">▽</div>
+          <p>Upload an image and click REDUCE</p>
+        </div>
+
+        <div id="red-spinner" class="spinner-wrap" style="display:none">
+          <div class="spinner"></div>
+          <span>Reducing palette…</span>
+        </div>
+
+        <div id="red-results" style="display:none; flex-direction:column; flex:1; overflow:hidden">
+
+          <div class="results-bar">
+            <div class="results-meta">
+              <div class="results-filename" id="red-filename"></div>
+              <div class="results-info">
+                <span id="red-color-count">0</span> COLORS &nbsp;·&nbsp;
+                <span id="red-px-count"></span>
+              </div>
+            </div>
+          </div>
+
+          <div style="flex:1; overflow-y:auto; display:flex; flex-direction:column">
+            <div class="reduce-compare">
+              <div class="compare-col">
+                <div class="compare-label">ORIGINAL</div>
+                <div class="swap-canvas-wrap"><img id="red-before-img" alt="" /></div>
+              </div>
+              <div class="compare-col">
+                <div class="compare-label">REDUCED</div>
+                <div class="swap-canvas-wrap"><img id="red-after-img" alt="" /></div>
+              </div>
+            </div>
+
+            <div class="reduce-strip-wrap">
+              <img id="red-strip-img" class="palette-strip" alt="palette strip" />
+            </div>
+
+            <div class="reduce-swatches">
+              <div id="red-swatch-grid" class="swatch-grid"></div>
             </div>
           </div>
 
         </div>
 
-      </div><!-- /preview-tab-swap -->
-
-      <!-- ── Build preview (placeholder) ──────────────────── -->
-      <div id="preview-tab-build" class="preview-tab-section">
-        <div class="empty-state">
-          <div class="empty-icon">⊞</div>
-          <p>Palette Builder — Coming Soon</p>
-        </div>
-      </div>
-
-      <!-- ── Reduce preview (placeholder) ──────────────────── -->
-      <div id="preview-tab-reduce" class="preview-tab-section">
-        <div class="empty-state">
-          <div class="empty-icon">▽</div>
-          <p>Reduce — Coming Soon</p>
-        </div>
       </div>
 
     </div><!-- /preview-panel -->
@@ -826,9 +1039,7 @@
     }
 
     function setAccent(hex) {
-      const r = parseInt(hex.slice(1, 3), 16);
-      const g = parseInt(hex.slice(3, 5), 16);
-      const b = parseInt(hex.slice(5, 7), 16);
+      const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
       document.documentElement.style.setProperty('--accent', hex);
       document.documentElement.style.setProperty('--accent-20', `rgba(${r},${g},${b},0.20)`);
       document.documentElement.style.setProperty('--accent-08', `rgba(${r},${g},${b},0.08)`);
@@ -836,8 +1047,39 @@
     }
 
     function hexToRgb(hex) {
-      const h = hex.replace('#', '');
+      const h = hex.replace('#','');
       return { r: parseInt(h.slice(0,2),16), g: parseInt(h.slice(2,4),16), b: parseInt(h.slice(4,6),16) };
+    }
+
+    function rgbToHex(r, g, b) {
+      return '#' + [r,g,b].map(x => x.toString(16).padStart(2,'0')).join('');
+    }
+
+    function rgbToHsv(r, g, b) {
+      r /= 255; g /= 255; b /= 255;
+      const max = Math.max(r,g,b), min = Math.min(r,g,b), d = max - min;
+      let h = 0;
+      const s = max === 0 ? 0 : d / max, v = max;
+      if (d !== 0) {
+        if      (max === r) h = ((g-b)/d + 6) % 6;
+        else if (max === g) h = (b-r)/d + 2;
+        else                h = (r-g)/d + 4;
+        h /= 6;
+      }
+      return [h * 360, s, v];
+    }
+
+    function hsvToRgb(h, s, v) {
+      h /= 360;
+      const i = Math.floor(h*6), f = h*6-i;
+      const p = v*(1-s), q = v*(1-f*s), t = v*(1-(1-f)*s);
+      let r, g, b;
+      switch (i%6) {
+        case 0: r=v;g=t;b=p; break; case 1: r=q;g=v;b=p; break;
+        case 2: r=p;g=v;b=t; break; case 3: r=p;g=q;b=v; break;
+        case 4: r=t;g=p;b=v; break; default: r=v;g=p;b=q;
+      }
+      return [Math.round(r*255), Math.round(g*255), Math.round(b*255)];
     }
 
     /* ════════════════════════════════════════════════════════════
@@ -849,8 +1091,8 @@
         document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.preview-tab-section').forEach(s => s.classList.remove('active'));
         btn.classList.add('active');
-        document.getElementById('panel-'         + btn.dataset.tab).classList.add('active');
-        document.getElementById('preview-tab-'   + btn.dataset.tab).classList.add('active');
+        document.getElementById('panel-'       + btn.dataset.tab).classList.add('active');
+        document.getElementById('preview-tab-' + btn.dataset.tab).classList.add('active');
       });
     });
 
@@ -880,18 +1122,15 @@
     const stripImg     = document.getElementById('strip-img');
     const swatchGrid   = document.getElementById('swatch-grid');
 
-    function showExtractPanel(which) {
-      emptyState.style.display  = which === 'empty'   ? 'flex' : 'none';
-      spinnerWrap.style.display = which === 'spinner' ? 'flex' : 'none';
-      results.style.display     = which === 'results' ? 'flex' : 'none';
+    function showExtractPanel(w) {
+      emptyState.style.display  = w==='empty'   ? 'flex' : 'none';
+      spinnerWrap.style.display = w==='spinner' ? 'flex' : 'none';
+      results.style.display     = w==='results' ? 'flex' : 'none';
     }
 
     dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
     dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
-    dropZone.addEventListener('drop', e => {
-      e.preventDefault(); dropZone.classList.remove('drag-over');
-      if (e.dataTransfer.files[0]) setExtractFile(e.dataTransfer.files[0]);
-    });
+    dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); if (e.dataTransfer.files[0]) setExtractFile(e.dataTransfer.files[0]); });
     dropZone.addEventListener('click', () => fileInput.click());
     fileInput.addEventListener('change', () => { if (fileInput.files[0]) setExtractFile(fileInput.files[0]); });
     fileClear.addEventListener('click', e => { e.stopPropagation(); clearExtractFile(); });
@@ -901,16 +1140,14 @@
       const reader = new FileReader();
       reader.onload = ev => { thumbImg.src = ev.target.result; };
       reader.readAsDataURL(f);
-      metaFilename.textContent = f.name;
-      fileBadgeName.textContent = f.name;
+      metaFilename.textContent = fileBadgeName.textContent = f.name;
       fileBadge.classList.add('visible');
       btnExtract.disabled = false;
       extract();
     }
 
     function clearExtractFile() {
-      currentFile = null; palette = [];
-      fileInput.value = '';
+      currentFile = null; palette = []; fileInput.value = '';
       fileBadge.classList.remove('visible');
       btnExtract.disabled = true;
       exportBtns.forEach(b => b.disabled = true);
@@ -923,23 +1160,20 @@
       if (!currentFile) return;
       showExtractPanel('spinner');
       btnExtract.classList.add('loading');
-
       const fd = new FormData();
       fd.append('image', currentFile);
       fd.append('max_colors', maxColorsIn.value || '32');
-
       try {
-        const res  = await fetch('/api/extract', { method: 'POST', body: fd });
+        const res = await fetch('/api/extract', { method:'POST', body:fd });
         const data = await res.json();
-        if (!res.ok) { showToast(data.error || 'Extraction failed.'); showExtractPanel(palette.length ? 'results' : 'empty'); return; }
+        if (!res.ok) { showToast(data.error||'Extraction failed.'); showExtractPanel(palette.length?'results':'empty'); return; }
         palette = data.palette;
         stripImg.src = 'data:image/png;base64,' + data.strip_png;
-        metaCount.textContent = palette.length;
-        countBadge.textContent = palette.length;
+        metaCount.textContent = countBadge.textContent = palette.length;
         renderSwatches();
         showExtractPanel('results');
         exportBtns.forEach(b => b.disabled = false);
-      } catch { showToast('Network error — please try again.'); showExtractPanel(palette.length ? 'results' : 'empty'); }
+      } catch { showToast('Network error — please try again.'); showExtractPanel(palette.length?'results':'empty'); }
       finally  { btnExtract.classList.remove('loading'); }
     }
 
@@ -953,11 +1187,11 @@
     });
 
     function sortedPalette() {
-      const copy = [...palette];
-      if (currentSort === 'hue')        copy.sort((a, b) => a.hue - b.hue);
-      else if (currentSort === 'brightness') copy.sort((a, b) => a.brightness - b.brightness);
-      else copy.sort((a, b) => b.count - a.count);
-      return copy;
+      const c = [...palette];
+      if (currentSort==='hue')        c.sort((a,b) => a.hue-b.hue);
+      else if (currentSort==='brightness') c.sort((a,b) => a.brightness-b.brightness);
+      else c.sort((a,b) => b.count-a.count);
+      return c;
     }
 
     function renderSwatches() {
@@ -965,15 +1199,11 @@
       sortedPalette().forEach(c => {
         const card = document.createElement('div');
         card.className = 'swatch-card';
-        card.title = `Click to copy ${c.hex}`;
         card.innerHTML =
           `<div class="swatch-color" style="background:${c.hex}"></div>` +
-          `<div class="swatch-info">` +
-            `<span class="swatch-hex">${c.hex}</span>` +
-            `<span class="swatch-pct">${(c.frequency*100).toFixed(1)}%</span>` +
-          `</div>`;
+          `<div class="swatch-info"><span class="swatch-hex">${c.hex}</span><span class="swatch-pct">${(c.frequency*100).toFixed(1)}%</span></div>`;
         card.addEventListener('click', () => {
-          navigator.clipboard.writeText(c.hex).catch(() => {});
+          navigator.clipboard.writeText(c.hex).catch(()=>{});
           card.classList.add('copied');
           setTimeout(() => card.classList.remove('copied'), 700);
           setAccent(c.hex);
@@ -988,35 +1218,21 @@
       btn.addEventListener('click', async () => {
         if (!palette.length) return;
         const fmt = btn.dataset.export;
-        if (fmt === 'png') { const a = document.createElement('a'); a.href = stripImg.src; a.download = 'palette.png'; a.click(); return; }
+        if (fmt==='png') { const a=document.createElement('a'); a.href=stripImg.src; a.download='palette.png'; a.click(); return; }
         try {
-          const res = await fetch('/api/build/export', {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ palette, format: fmt }),
-          });
-          if (!res.ok) { const err = await res.json().catch(() => ({})); showToast(err.error || 'Export failed.'); return; }
-          const blob = await res.blob();
-          const url  = URL.createObjectURL(blob);
-          const a    = document.createElement('a');
-          a.href = url; a.download = `palette.${fmt}`; a.click();
-          URL.revokeObjectURL(url);
-        } catch { showToast('Export failed — please try again.'); }
+          const res = await fetch('/api/build/export',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({palette,format:fmt})});
+          if (!res.ok) { const e=await res.json().catch(()=>({})); showToast(e.error||'Export failed.'); return; }
+          const blob=await res.blob(), url=URL.createObjectURL(blob), a=document.createElement('a');
+          a.href=url; a.download=`palette.${fmt}`; a.click(); URL.revokeObjectURL(url);
+        } catch { showToast('Export failed.'); }
       });
     });
 
     /* ════════════════════════════════════════════════════════════
        TAB 2 — SWAP / REMAP
     ════════════════════════════════════════════════════════════ */
-    const sw = {
-      file:          null,
-      batchFile:     null,
-      palette:       [],     // [{hex,r,g,b,...}] from /api/extract
-      pairs:         [],     // [{from:"#hex", to:"#hex"}]
-      sourceHex:     null,   // currently selected source
-      origImageData: null,   // ImageData at canvas resolution
-    };
+    const sw = { file:null, batchFile:null, palette:[], pairs:[], sourceHex:null, origImageData:null };
 
-    // Elements — left panel
     const swDropZone       = document.getElementById('swap-drop-zone');
     const swFileInput      = document.getElementById('swap-file-input');
     const swFileBadge      = document.getElementById('swap-file-badge');
@@ -1033,11 +1249,9 @@
     const batchDropZone    = document.getElementById('batch-drop-zone');
     const batchFileInput   = document.getElementById('batch-file-input');
     const batchFileBadge   = document.getElementById('batch-file-badge');
-    const batchFileBadgeName = document.getElementById('batch-file-badge-name');
+    const batchFileBadgeName=document.getElementById('batch-file-badge-name');
     const batchFileClear   = document.getElementById('batch-file-clear');
     const btnExportBatch   = document.getElementById('btn-export-batch');
-
-    // Elements — right panel
     const swEmpty          = document.getElementById('swap-empty');
     const swSpinner        = document.getElementById('swap-spinner');
     const swLoaded         = document.getElementById('swap-loaded');
@@ -1049,285 +1263,599 @@
     const canvasBefore     = document.getElementById('swap-canvas-before');
     const canvasAfter      = document.getElementById('swap-canvas-after');
 
-    function showSwapPanel(which) {
-      swEmpty.style.display   = which === 'empty'   ? 'flex'   : 'none';
-      swSpinner.style.display = which === 'spinner' ? 'flex'   : 'none';
-      swLoaded.style.display  = which === 'loaded'  ? 'flex'   : 'none';
+    function showSwapPanel(w) {
+      swEmpty.style.display   = w==='empty'   ? 'flex' : 'none';
+      swSpinner.style.display = w==='spinner' ? 'flex' : 'none';
+      swLoaded.style.display  = w==='loaded'  ? 'flex' : 'none';
     }
 
-    // ── Drop / file select ────────────────────────────────────
     swDropZone.addEventListener('dragover', e => { e.preventDefault(); swDropZone.classList.add('drag-over'); });
     swDropZone.addEventListener('dragleave', () => swDropZone.classList.remove('drag-over'));
-    swDropZone.addEventListener('drop', e => {
-      e.preventDefault(); swDropZone.classList.remove('drag-over');
-      if (e.dataTransfer.files[0]) setSwapFile(e.dataTransfer.files[0]);
-    });
+    swDropZone.addEventListener('drop', e => { e.preventDefault(); swDropZone.classList.remove('drag-over'); if (e.dataTransfer.files[0]) setSwapFile(e.dataTransfer.files[0]); });
     swDropZone.addEventListener('click', () => swFileInput.click());
     swFileInput.addEventListener('change', () => { if (swFileInput.files[0]) setSwapFile(swFileInput.files[0]); });
     swFileClear.addEventListener('click', e => { e.stopPropagation(); clearSwapFile(); });
 
     async function setSwapFile(f) {
       sw.file = f;
-      swFileBadgeName.textContent = f.name;
+      swFileBadgeName.textContent = swFilename.textContent = f.name;
       swFileBadge.classList.add('visible');
-      swFilename.textContent = f.name;
-
       showSwapPanel('spinner');
-
-      // Read thumbnail
       const reader = new FileReader();
       reader.onload = ev => { swThumb.src = ev.target.result; };
       reader.readAsDataURL(f);
-
-      // Extract palette from image
       const fd = new FormData();
-      fd.append('image', f);
-      fd.append('max_colors', '64');
-
+      fd.append('image', f); fd.append('max_colors', '64');
       try {
-        const res  = await fetch('/api/extract', { method: 'POST', body: fd });
+        const res = await fetch('/api/extract',{method:'POST',body:fd});
         const data = await res.json();
-        if (!res.ok) { showToast(data.error || 'Could not load image.'); showSwapPanel('empty'); return; }
-
+        if (!res.ok) { showToast(data.error||'Could not load image.'); showSwapPanel('empty'); return; }
         sw.palette = data.palette;
         swColorCount.textContent = sw.palette.length;
-
-        // Draw canvases once image loads
         const img = new Image();
-        img.onload = () => {
-          setupSwapCanvases(img);
-          renderSwapPalette();
-          showSwapPanel('loaded');
-        };
+        img.onload = () => { setupSwapCanvases(img); renderSwapPalette(); showSwapPanel('loaded'); };
         img.src = swThumb.src;
-
-      } catch { showToast('Network error — please try again.'); showSwapPanel('empty'); }
+      } catch { showToast('Network error.'); showSwapPanel('empty'); }
     }
 
     function clearSwapFile() {
-      sw.file = null; sw.palette = []; sw.pairs = []; sw.sourceHex = null; sw.origImageData = null;
-      swFileInput.value = '';
-      swFileBadge.classList.remove('visible');
-      btnExportSwap.disabled = true;
-      clearSourceSelection();
-      renderPairsList();
-      showSwapPanel('empty');
+      sw.file=null; sw.palette=[]; sw.pairs=[]; sw.sourceHex=null; sw.origImageData=null;
+      swFileInput.value=''; swFileBadge.classList.remove('visible');
+      btnExportSwap.disabled=true; clearSourceSelection(); renderPairsList(); showSwapPanel('empty');
     }
 
-    // ── Canvas setup ──────────────────────────────────────────
     function setupSwapCanvases(img) {
-      const MAX = 512;
-      let w = img.naturalWidth, h = img.naturalHeight;
-      if (w > MAX || h > MAX) {
-        const ratio = Math.min(MAX / w, MAX / h);
-        w = Math.round(w * ratio);
-        h = Math.round(h * ratio);
-      }
-
-      canvasBefore.width  = canvasAfter.width  = w;
-      canvasBefore.height = canvasAfter.height = h;
-
-      const ctxB = canvasBefore.getContext('2d');
-      ctxB.imageSmoothingEnabled = false;
-      ctxB.drawImage(img, 0, 0, w, h);
-
-      const ctxA = canvasAfter.getContext('2d');
-      ctxA.imageSmoothingEnabled = false;
-      ctxA.drawImage(img, 0, 0, w, h);
-
-      sw.origImageData = ctxB.getImageData(0, 0, w, h);
+      const MAX=512; let w=img.naturalWidth,h=img.naturalHeight;
+      if (w>MAX||h>MAX) { const r=Math.min(MAX/w,MAX/h); w=Math.round(w*r); h=Math.round(h*r); }
+      canvasBefore.width=canvasAfter.width=w; canvasBefore.height=canvasAfter.height=h;
+      const ctxB=canvasBefore.getContext('2d'); ctxB.imageSmoothingEnabled=false; ctxB.drawImage(img,0,0,w,h);
+      const ctxA=canvasAfter.getContext('2d');  ctxA.imageSmoothingEnabled=false; ctxA.drawImage(img,0,0,w,h);
+      sw.origImageData = ctxB.getImageData(0,0,w,h);
     }
 
-    // ── Source palette grid ───────────────────────────────────
     function renderSwapPalette() {
-      swPaletteRow.innerHTML = '';
+      swPaletteRow.innerHTML='';
       sw.palette.forEach(c => {
-        const s = document.createElement('div');
-        s.className = 'swap-swatch';
-        s.style.background = c.hex;
-        s.title = c.hex;
-        if (sw.pairs.some(p => p.from === c.hex)) s.classList.add('mapped');
-        if (sw.sourceHex === c.hex) s.classList.add('selected');
-        s.addEventListener('click', () => selectSwapSource(c.hex));
+        const s=document.createElement('div');
+        s.className='swap-swatch';
+        s.style.background=c.hex; s.title=c.hex;
+        if (sw.pairs.some(p=>p.from===c.hex)) s.classList.add('mapped');
+        if (sw.sourceHex===c.hex) s.classList.add('selected');
+        s.addEventListener('click', ()=>selectSwapSource(c.hex));
         swPaletteRow.appendChild(s);
       });
     }
 
     function selectSwapSource(hex) {
-      sw.sourceHex = hex;
-      // Update builder UI
-      pairFromBox.style.background = hex;
-      pairFromBox.classList.remove('empty');
-      pairBuilderHint.textContent = `Source: ${hex}`;
-      pairBuilderHint.classList.add('has-source');
+      sw.sourceHex=hex;
+      pairFromBox.style.background=hex; pairFromBox.classList.remove('empty');
+      pairBuilderHint.textContent=`Source: ${hex}`; pairBuilderHint.classList.add('has-source');
       btnAddPair.classList.add('ready');
-      // Pre-fill picker with existing mapping if any
-      const existing = sw.pairs.find(p => p.from === hex);
-      if (existing) pairToPicker.value = existing.to;
+      const existing=sw.pairs.find(p=>p.from===hex);
+      if (existing) pairToPicker.value=existing.to;
       renderSwapPalette();
     }
 
     function clearSourceSelection() {
-      sw.sourceHex = null;
-      pairFromBox.style.background = '';
-      pairFromBox.classList.add('empty');
-      pairBuilderHint.textContent = '← Click a color swatch to select source';
+      sw.sourceHex=null;
+      pairFromBox.style.background=''; pairFromBox.classList.add('empty');
+      pairBuilderHint.textContent='← Click a color swatch to select source';
       pairBuilderHint.classList.remove('has-source');
       btnAddPair.classList.remove('ready');
     }
 
-    // ── Add / remove pairs ────────────────────────────────────
     btnAddPair.addEventListener('click', () => {
       if (!sw.sourceHex) return;
-      const toHex = pairToPicker.value;
-      const existing = sw.pairs.findIndex(p => p.from === sw.sourceHex);
-      if (existing >= 0) sw.pairs[existing].to = toHex;
-      else sw.pairs.push({ from: sw.sourceHex, to: toHex });
-      clearSourceSelection();
-      renderPairsList();
-      renderSwapPalette();
-      updateAfterCanvas();
+      const toHex=pairToPicker.value;
+      const idx=sw.pairs.findIndex(p=>p.from===sw.sourceHex);
+      if (idx>=0) sw.pairs[idx].to=toHex; else sw.pairs.push({from:sw.sourceHex,to:toHex});
+      clearSourceSelection(); renderPairsList(); renderSwapPalette(); updateAfterCanvas();
     });
 
     function renderPairsList() {
-      // Remove old pair items (keep empty note)
-      pairsList.querySelectorAll('.pair-item').forEach(el => el.remove());
+      pairsList.querySelectorAll('.pair-item').forEach(el=>el.remove());
       pairsEmptyNote.style.display = sw.pairs.length ? 'none' : 'block';
-
-      sw.pairs.forEach((pair, idx) => {
-        const item = document.createElement('div');
-        item.className = 'pair-item';
-        item.innerHTML =
-          `<div class="pair-swatch" style="background:${pair.from}"></div>` +
-          `<span class="pair-hex">${pair.from}</span>` +
+      sw.pairs.forEach((pair,idx)=>{
+        const item=document.createElement('div'); item.className='pair-item';
+        item.innerHTML=
+          `<div class="pair-swatch" style="background:${pair.from}"></div><span class="pair-hex">${pair.from}</span>` +
           `<span class="pair-mid">→</span>` +
-          `<div class="pair-swatch" style="background:${pair.to}"></div>` +
-          `<span class="pair-hex">${pair.to}</span>` +
+          `<div class="pair-swatch" style="background:${pair.to}"></div><span class="pair-hex">${pair.to}</span>` +
           `<button class="pair-remove" data-idx="${idx}">✕</button>`;
         pairsList.appendChild(item);
       });
-
-      // Wire remove buttons
-      pairsList.querySelectorAll('.pair-remove').forEach(btn => {
-        btn.addEventListener('click', () => {
-          sw.pairs.splice(parseInt(btn.dataset.idx), 1);
-          renderPairsList();
-          renderSwapPalette();
-          updateAfterCanvas();
+      pairsList.querySelectorAll('.pair-remove').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          sw.pairs.splice(parseInt(btn.dataset.idx),1);
+          renderPairsList(); renderSwapPalette(); updateAfterCanvas();
         });
       });
-
-      const hasPairs = sw.pairs.length > 0;
-      swPairsCount.textContent = sw.pairs.length;
-      btnClearPairs.disabled   = !hasPairs;
-      btnExportSwap.disabled   = !(hasPairs && sw.file);
+      const has=sw.pairs.length>0;
+      swPairsCount.textContent=sw.pairs.length;
+      btnClearPairs.disabled=!has;
+      btnExportSwap.disabled=!(has&&sw.file);
       updateBatchExportBtn();
     }
 
-    btnClearPairs.addEventListener('click', () => {
-      sw.pairs = [];
-      clearSourceSelection();
-      renderPairsList();
-      renderSwapPalette();
-      updateAfterCanvas();
-    });
+    btnClearPairs.addEventListener('click',()=>{ sw.pairs=[]; clearSourceSelection(); renderPairsList(); renderSwapPalette(); updateAfterCanvas(); });
 
-    // ── Live canvas update ────────────────────────────────────
     function updateAfterCanvas() {
       if (!sw.origImageData) return;
-      const ctxA = canvasAfter.getContext('2d');
-
-      if (!sw.pairs.length) {
-        ctxA.putImageData(sw.origImageData, 0, 0);
-        return;
-      }
-
-      // Build fast lookup: "r,g,b" → [r,g,b]
-      const remapMap = new Map();
-      sw.pairs.forEach(pair => {
-        const f = hexToRgb(pair.from);
-        const t = hexToRgb(pair.to);
-        remapMap.set(`${f.r},${f.g},${f.b}`, t);
-      });
-
-      const src  = sw.origImageData.data;
-      const copy = new Uint8ClampedArray(src.length);
+      const ctxA=canvasAfter.getContext('2d');
+      if (!sw.pairs.length) { ctxA.putImageData(sw.origImageData,0,0); return; }
+      const map=new Map();
+      sw.pairs.forEach(p=>{ const f=hexToRgb(p.from),t=hexToRgb(p.to); map.set(`${f.r},${f.g},${f.b}`,t); });
+      const src=sw.origImageData.data, copy=new Uint8ClampedArray(src.length);
       copy.set(src);
-
-      for (let i = 0; i < copy.length; i += 4) {
-        const key = `${copy[i]},${copy[i+1]},${copy[i+2]}`;
-        const rep = remapMap.get(key);
-        if (rep) { copy[i] = rep.r; copy[i+1] = rep.g; copy[i+2] = rep.b; }
+      for (let i=0;i<copy.length;i+=4) {
+        const rep=map.get(`${copy[i]},${copy[i+1]},${copy[i+2]}`);
+        if (rep) { copy[i]=rep.r; copy[i+1]=rep.g; copy[i+2]=rep.b; }
       }
-
-      const newData = new ImageData(copy, canvasAfter.width, canvasAfter.height);
-      ctxA.putImageData(newData, 0, 0);
+      ctxA.putImageData(new ImageData(copy,canvasAfter.width,canvasAfter.height),0,0);
     }
 
-    // ── Export remapped image ─────────────────────────────────
-    btnExportSwap.addEventListener('click', async () => {
-      if (!sw.file || !sw.pairs.length) return;
+    btnExportSwap.addEventListener('click', async ()=>{
+      if (!sw.file||!sw.pairs.length) return;
       btnExportSwap.classList.add('loading');
       try {
-        const fd = new FormData();
-        fd.append('image', sw.file);
-        fd.append('remap', JSON.stringify(sw.pairs));
-        const res = await fetch('/api/swap', { method: 'POST', body: fd });
-        if (!res.ok) { const err = await res.json().catch(() => ({})); showToast(err.error || 'Export failed.'); return; }
-        const blob = await res.blob();
-        const url  = URL.createObjectURL(blob);
-        const a    = document.createElement('a');
-        a.href = url; a.download = 'remapped.png'; a.click();
-        URL.revokeObjectURL(url);
-      } catch { showToast('Export failed — please try again.'); }
-      finally  { btnExportSwap.classList.remove('loading'); }
+        const fd=new FormData(); fd.append('image',sw.file); fd.append('remap',JSON.stringify(sw.pairs));
+        const res=await fetch('/api/swap',{method:'POST',body:fd});
+        if (!res.ok) { const e=await res.json().catch(()=>({})); showToast(e.error||'Export failed.'); return; }
+        const blob=await res.blob(),url=URL.createObjectURL(blob),a=document.createElement('a');
+        a.href=url; a.download='remapped.png'; a.click(); URL.revokeObjectURL(url);
+      } catch { showToast('Export failed.'); }
+      finally { btnExportSwap.classList.remove('loading'); }
     });
 
-    // ── Batch mode ────────────────────────────────────────────
-    batchDropZone.addEventListener('dragover', e => { e.preventDefault(); batchDropZone.classList.add('drag-over'); });
-    batchDropZone.addEventListener('dragleave', () => batchDropZone.classList.remove('drag-over'));
-    batchDropZone.addEventListener('drop', e => {
-      e.preventDefault(); batchDropZone.classList.remove('drag-over');
-      if (e.dataTransfer.files[0]) setBatchFile(e.dataTransfer.files[0]);
-    });
-    batchDropZone.addEventListener('click', () => batchFileInput.click());
-    batchFileInput.addEventListener('change', () => { if (batchFileInput.files[0]) setBatchFile(batchFileInput.files[0]); });
-    batchFileClear.addEventListener('click', e => { e.stopPropagation(); clearBatchFile(); });
+    batchDropZone.addEventListener('dragover',e=>{e.preventDefault();batchDropZone.classList.add('drag-over');});
+    batchDropZone.addEventListener('dragleave',()=>batchDropZone.classList.remove('drag-over'));
+    batchDropZone.addEventListener('drop',e=>{e.preventDefault();batchDropZone.classList.remove('drag-over');if(e.dataTransfer.files[0])setBatchFile(e.dataTransfer.files[0]);});
+    batchDropZone.addEventListener('click',()=>batchFileInput.click());
+    batchFileInput.addEventListener('change',()=>{if(batchFileInput.files[0])setBatchFile(batchFileInput.files[0]);});
+    batchFileClear.addEventListener('click',e=>{e.stopPropagation();clearBatchFile();});
 
-    function setBatchFile(f) {
-      sw.batchFile = f;
-      batchFileBadgeName.textContent = f.name;
-      batchFileBadge.classList.add('visible');
-      updateBatchExportBtn();
-    }
+    function setBatchFile(f) { sw.batchFile=f; batchFileBadgeName.textContent=f.name; batchFileBadge.classList.add('visible'); updateBatchExportBtn(); }
+    function clearBatchFile() { sw.batchFile=null; batchFileInput.value=''; batchFileBadge.classList.remove('visible'); updateBatchExportBtn(); }
+    function updateBatchExportBtn() { btnExportBatch.disabled=!(sw.batchFile&&sw.pairs.length); }
 
-    function clearBatchFile() {
-      sw.batchFile = null;
-      batchFileInput.value = '';
-      batchFileBadge.classList.remove('visible');
-      updateBatchExportBtn();
-    }
-
-    function updateBatchExportBtn() {
-      btnExportBatch.disabled = !(sw.batchFile && sw.pairs.length);
-    }
-
-    btnExportBatch.addEventListener('click', async () => {
-      if (!sw.batchFile || !sw.pairs.length) return;
+    btnExportBatch.addEventListener('click', async ()=>{
+      if (!sw.batchFile||!sw.pairs.length) return;
       btnExportBatch.classList.add('loading');
       try {
-        const fd = new FormData();
-        fd.append('zip', sw.batchFile);
-        fd.append('remap', JSON.stringify(sw.pairs));
-        const res = await fetch('/api/swap/batch', { method: 'POST', body: fd });
-        if (!res.ok) { const err = await res.json().catch(() => ({})); showToast(err.error || 'Batch export failed.'); return; }
-        const blob = await res.blob();
-        const url  = URL.createObjectURL(blob);
-        const a    = document.createElement('a');
-        a.href = url; a.download = 'remapped_batch.zip'; a.click();
-        URL.revokeObjectURL(url);
-      } catch { showToast('Batch export failed — please try again.'); }
-      finally  { btnExportBatch.classList.remove('loading'); }
+        const fd=new FormData(); fd.append('zip',sw.batchFile); fd.append('remap',JSON.stringify(sw.pairs));
+        const res=await fetch('/api/swap/batch',{method:'POST',body:fd});
+        if (!res.ok) { const e=await res.json().catch(()=>({})); showToast(e.error||'Batch failed.'); return; }
+        const blob=await res.blob(),url=URL.createObjectURL(blob),a=document.createElement('a');
+        a.href=url; a.download='remapped_batch.zip'; a.click(); URL.revokeObjectURL(url);
+      } catch { showToast('Batch export failed.'); }
+      finally { btnExportBatch.classList.remove('loading'); }
+    });
+
+    /* ════════════════════════════════════════════════════════════
+       TAB 3 — PALETTE BUILDER
+    ════════════════════════════════════════════════════════════ */
+    const BUILD_PRESETS = {
+      'PICO-8': [
+        '#000000','#1d2b53','#7e2553','#008751','#ab5236','#5f574f','#c2c3c7','#fff1e8',
+        '#ff004d','#ffa300','#ffec27','#00e436','#29adff','#83769c','#ff77a8','#ffccaa'
+      ],
+      'GAMEBOY': ['#0f380f','#306230','#8bac0f','#9bbc0f'],
+      'NES': [
+        '#626262','#001fb2','#2404c8','#5200b2','#730076','#800024','#730b00','#522800',
+        '#244400','#005700','#005c00','#005324','#003c76','#000000',
+        '#ababab','#0d57ff','#4b30ff','#8a13ff','#bc08d6','#d21269','#c72e00','#9d5400',
+        '#607b00','#209800','#00a300','#009942','#007db4',
+        '#ffffff','#53aeff','#9085ff','#d86bff','#ff77ff','#ff6b9d','#ff6745','#cc8a00',
+        '#b3ae00','#64ca00','#1cdb00','#00d172','#00c9d6','#4e4e4e',
+        '#b6e1ff','#ced1ff','#e9c3ff','#ffbcff','#ffbdd3','#ffbfb0','#e2d0a2',
+        '#dde7a2','#cde2a2','#b4e7bf','#b4e4df','#b5d4e4','#b8b8b8'
+      ],
+      'ENDESGA-32': [
+        '#be4a2f','#d77643','#ead4aa','#e4a672','#b86f50','#733e39','#3e2731','#a22633',
+        '#e43b44','#f77622','#feae34','#fee761','#63c74d','#3e8948','#265c42','#193c3e',
+        '#124e89','#0099db','#2ce8f5','#ffffff','#c0cbdc','#8b9bb4','#5a6988','#3a4466',
+        '#262b44','#181425','#ff0044','#68386c','#b55088','#f6757a','#e8b796','#c28569'
+      ]
+    };
+
+    const build = { palette: [], selected: null, testImageData: null };
+
+    const buildColorPicker  = document.getElementById('build-color-picker');
+    const addColorHexEl     = document.getElementById('add-color-hex');
+    const btnAddColor       = document.getElementById('btn-add-color');
+    const harmonyArea       = document.getElementById('harmony-area');
+    const limitCurrent      = document.getElementById('limit-current');
+    const testDropZone      = document.getElementById('test-drop-zone');
+    const testFileInput     = document.getElementById('test-file-input');
+    const testFileBadge     = document.getElementById('test-file-badge');
+    const testFileBadgeName = document.getElementById('test-file-badge-name');
+    const testFileClear     = document.getElementById('test-file-clear');
+    const buildExportBtns   = document.querySelectorAll('[data-build-export]');
+    const btnLoadExtract    = document.getElementById('btn-load-extract');
+    const btnClearPalette   = document.getElementById('btn-clear-palette');
+    const buildEmpty        = document.getElementById('build-empty');
+    const buildLoaded       = document.getElementById('build-loaded');
+    const buildColorCount   = document.getElementById('build-color-count');
+    const buildSwatchGrid   = document.getElementById('build-swatch-grid');
+    const buildTestSection  = document.getElementById('build-test-section');
+    const testCanvasBefore  = document.getElementById('test-canvas-before');
+    const testCanvasAfter   = document.getElementById('test-canvas-after');
+
+    function showBuildPanel(w) {
+      buildEmpty.style.display  = w==='empty'  ? 'flex' : 'none';
+      buildLoaded.style.display = w==='loaded' ? 'flex' : 'none';
+    }
+
+    // Picker live update
+    buildColorPicker.addEventListener('input', () => {
+      const hex = buildColorPicker.value;
+      addColorHexEl.textContent = hex;
+      // Live-edit selected swatch
+      if (build.selected) {
+        const idx = build.palette.findIndex(c => c.hex === build.selected);
+        if (idx >= 0) {
+          const {r,g,b} = hexToRgb(hex);
+          build.palette[idx] = { hex, r, g, b };
+          build.selected = hex;
+          renderBuilderPalette();
+          scheduleTestPreview();
+        }
+      }
+      updateHarmonyArea(hex);
+    });
+
+    // Presets
+    document.querySelectorAll('.btn-preset').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const hexList = BUILD_PRESETS[btn.dataset.preset];
+        if (!hexList) return;
+        build.palette = hexList.map(hex => { const {r,g,b}=hexToRgb(hex); return {hex,r,g,b}; });
+        build.selected = null;
+        renderBuilderPalette();
+        scheduleTestPreview();
+      });
+    });
+
+    // Load from Extract
+    btnLoadExtract.addEventListener('click', () => {
+      if (!palette.length) { showToast('Extract a palette first in the Extract tab.'); return; }
+      build.palette = palette.map(c => ({ hex:c.hex, r:c.r, g:c.g, b:c.b }));
+      build.selected = null;
+      renderBuilderPalette();
+      scheduleTestPreview();
+    });
+
+    // Add color
+    btnAddColor.addEventListener('click', () => addColorToBuild(buildColorPicker.value));
+
+    function addColorToBuild(hex) {
+      hex = hex.toLowerCase();
+      if (build.palette.some(c => c.hex === hex)) { showToast('Color already in palette.'); return; }
+      const {r,g,b} = hexToRgb(hex);
+      build.palette.push({hex,r,g,b});
+      renderBuilderPalette();
+      scheduleTestPreview();
+    }
+
+    // Clear all
+    btnClearPalette.addEventListener('click', () => {
+      build.palette=[]; build.selected=null; renderBuilderPalette(); scheduleTestPreview();
+    });
+
+    // Force limit
+    document.querySelectorAll('.btn-limit').forEach(btn => {
+      btn.addEventListener('click', () => forcePaletteLimit(parseInt(btn.dataset.limit)));
+    });
+
+    function forcePaletteLimit(limit) {
+      if (build.palette.length <= limit) { showToast(`Already at ${build.palette.length} colors (≤ ${limit}).`); return; }
+      let pal = [...build.palette];
+      while (pal.length > limit) {
+        let minD=Infinity, a=0, b=1;
+        for (let i=0;i<pal.length;i++)
+          for (let j=i+1;j<pal.length;j++) {
+            const d=(pal[i].r-pal[j].r)**2+(pal[i].g-pal[j].g)**2+(pal[i].b-pal[j].b)**2;
+            if (d<minD) { minD=d; a=i; b=j; }
+          }
+        const ca=pal[a], cb=pal[b];
+        const nr=Math.round((ca.r+cb.r)/2), ng=Math.round((ca.g+cb.g)/2), nb=Math.round((ca.b+cb.b)/2);
+        pal[a]={hex:rgbToHex(nr,ng,nb),r:nr,g:ng,b:nb};
+        pal.splice(b,1);
+      }
+      build.palette=pal; build.selected=null;
+      renderBuilderPalette(); scheduleTestPreview();
+    }
+
+    // Render palette grid
+    function renderBuilderPalette() {
+      const has = build.palette.length > 0;
+      showBuildPanel(has ? 'loaded' : 'empty');
+      buildColorCount.textContent = build.palette.length;
+      limitCurrent.textContent = `${build.palette.length} colors`;
+      buildExportBtns.forEach(b => b.disabled = !has);
+      if (!has) return;
+
+      buildSwatchGrid.innerHTML = '';
+      build.palette.forEach(c => {
+        const sw = document.createElement('div');
+        sw.className = 'build-swatch' + (build.selected===c.hex ? ' selected' : '');
+        sw.innerHTML =
+          `<div class="build-swatch-color" style="background:${c.hex}"></div>` +
+          `<div class="build-swatch-hex">${c.hex}</div>` +
+          `<button class="build-swatch-remove" title="Remove">✕</button>`;
+        // Click color = select + load to picker
+        sw.querySelector('.build-swatch-color').addEventListener('click', () => {
+          build.selected = c.hex;
+          buildColorPicker.value = c.hex;
+          addColorHexEl.textContent = c.hex;
+          updateHarmonyArea(c.hex);
+          renderBuilderPalette();
+        });
+        // Remove
+        sw.querySelector('.build-swatch-remove').addEventListener('click', e => {
+          e.stopPropagation();
+          build.palette = build.palette.filter(p => p.hex !== c.hex);
+          if (build.selected===c.hex) build.selected=null;
+          renderBuilderPalette(); scheduleTestPreview();
+        });
+        buildSwatchGrid.appendChild(sw);
+      });
+
+      // Re-render harmony with current picker in case palette changed
+      updateHarmonyArea(buildColorPicker.value);
+    }
+
+    // Harmony suggestions
+    function updateHarmonyArea(hex) {
+      const {r,g,b} = hexToRgb(hex);
+      const [h,s,v] = rgbToHsv(r,g,b);
+      const groups = [
+        { label:'COMPL',  colors:[rgbToHex(...hsvToRgb((h+180)%360,s,v))] },
+        { label:'TRIAD',  colors:[rgbToHex(...hsvToRgb((h+120)%360,s,v)), rgbToHex(...hsvToRgb((h+240)%360,s,v))] },
+        { label:'ANALOG', colors:[rgbToHex(...hsvToRgb((h+30)%360,s,v)),  rgbToHex(...hsvToRgb((h+330)%360,s,v))] },
+      ];
+      harmonyArea.innerHTML = '';
+      groups.forEach(group => {
+        const row = document.createElement('div');
+        row.className = 'harmony-group';
+        row.innerHTML = `<span class="harmony-tag">${group.label}</span>`;
+        group.colors.forEach(hx => {
+          const s = document.createElement('div');
+          s.className = 'harmony-swatch';
+          s.style.background = hx;
+          s.title = hx;
+          if (build.palette.some(c=>c.hex===hx)) s.classList.add('in-palette');
+          s.addEventListener('click', () => addColorToBuild(hx));
+          row.appendChild(s);
+        });
+        harmonyArea.appendChild(row);
+      });
+    }
+
+    // Init harmony on load
+    updateHarmonyArea(buildColorPicker.value);
+
+    // Test image
+    testDropZone.addEventListener('dragover',e=>{e.preventDefault();testDropZone.classList.add('drag-over');});
+    testDropZone.addEventListener('dragleave',()=>testDropZone.classList.remove('drag-over'));
+    testDropZone.addEventListener('drop',e=>{e.preventDefault();testDropZone.classList.remove('drag-over');if(e.dataTransfer.files[0])loadTestImage(e.dataTransfer.files[0]);});
+    testDropZone.addEventListener('click',()=>testFileInput.click());
+    testFileInput.addEventListener('change',()=>{if(testFileInput.files[0])loadTestImage(testFileInput.files[0]);});
+    testFileClear.addEventListener('click',e=>{e.stopPropagation();clearTestImage();});
+
+    function loadTestImage(f) {
+      testFileBadgeName.textContent=f.name; testFileBadge.classList.add('visible');
+      const reader=new FileReader();
+      reader.onload=e=>{
+        const img=new Image();
+        img.onload=()=>{
+          const MAX=400; let w=img.naturalWidth,h=img.naturalHeight;
+          if (w>MAX||h>MAX) { const r=Math.min(MAX/w,MAX/h); w=Math.round(w*r); h=Math.round(h*r); }
+          testCanvasBefore.width=testCanvasAfter.width=w;
+          testCanvasBefore.height=testCanvasAfter.height=h;
+          const ctx=testCanvasBefore.getContext('2d');
+          ctx.imageSmoothingEnabled=false; ctx.drawImage(img,0,0,w,h);
+          build.testImageData=ctx.getImageData(0,0,w,h);
+          buildTestSection.style.display='block';
+          updateTestPreview();
+        };
+        img.src=e.target.result;
+      };
+      reader.readAsDataURL(f);
+    }
+
+    function clearTestImage() {
+      build.testImageData=null; testFileInput.value='';
+      testFileBadge.classList.remove('visible');
+      buildTestSection.style.display='none';
+    }
+
+    let testPreviewTimer=null;
+    function scheduleTestPreview() {
+      clearTimeout(testPreviewTimer);
+      testPreviewTimer=setTimeout(updateTestPreview,80);
+    }
+
+    function updateTestPreview() {
+      if (!build.testImageData||!build.palette.length) return;
+      const pal=build.palette;
+      const cache=new Map();
+      const src=build.testImageData.data;
+      const copy=new Uint8ClampedArray(src.length);
+      copy.set(src);
+      for (let i=0;i<copy.length;i+=4) {
+        const key=`${copy[i]},${copy[i+1]},${copy[i+2]}`;
+        let rep=cache.get(key);
+        if (!rep) {
+          let minD=Infinity;
+          for (const p of pal) {
+            const d=(copy[i]-p.r)**2+(copy[i+1]-p.g)**2+(copy[i+2]-p.b)**2;
+            if (d<minD) { minD=d; rep=p; }
+          }
+          cache.set(key,rep);
+        }
+        copy[i]=rep.r; copy[i+1]=rep.g; copy[i+2]=rep.b;
+      }
+      testCanvasAfter.getContext('2d').putImageData(
+        new ImageData(copy,build.testImageData.width,build.testImageData.height),0,0
+      );
+    }
+
+    // Build exports
+    buildExportBtns.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        if (!build.palette.length) return;
+        const fmt = btn.dataset.buildExport;
+        try {
+          const res=await fetch('/api/build/export',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({palette:build.palette,format:fmt})});
+          if (!res.ok) { const e=await res.json().catch(()=>({})); showToast(e.error||'Export failed.'); return; }
+          const blob=await res.blob(),url=URL.createObjectURL(blob),a=document.createElement('a');
+          a.href=url; a.download=`palette.${fmt}`; a.click(); URL.revokeObjectURL(url);
+        } catch { showToast('Export failed.'); }
+      });
+    });
+
+    /* ════════════════════════════════════════════════════════════
+       TAB 4 — REDUCE
+    ════════════════════════════════════════════════════════════ */
+    const red = { file: null, palette: [], imageB64: null };
+    let currentDither = 'none';
+
+    const redDropZone      = document.getElementById('red-drop-zone');
+    const redFileInput     = document.getElementById('red-file-input');
+    const redFileBadge     = document.getElementById('red-file-badge');
+    const redFileBadgeName = document.getElementById('red-file-badge-name');
+    const redFileClear     = document.getElementById('red-file-clear');
+    const redColorsIn      = document.getElementById('red-colors');
+    const redDitherCtrl    = document.getElementById('red-dither-ctrl');
+    const btnReduce        = document.getElementById('btn-reduce');
+    const redExportRow     = document.getElementById('red-export-row');
+    const btnRedDownload   = document.getElementById('btn-red-download');
+    const redExportBtns    = document.querySelectorAll('[data-reduce-export]');
+    const redEmpty         = document.getElementById('red-empty');
+    const redSpinner       = document.getElementById('red-spinner');
+    const redResultsEl     = document.getElementById('red-results');
+    const redColorCount    = document.getElementById('red-color-count');
+    const redPxCount       = document.getElementById('red-px-count');
+    const redFilenameEl    = document.getElementById('red-filename');
+    const redBeforeImg     = document.getElementById('red-before-img');
+    const redAfterImg      = document.getElementById('red-after-img');
+    const redStripImg      = document.getElementById('red-strip-img');
+    const redSwatchGrid    = document.getElementById('red-swatch-grid');
+
+    function showReducePanel(w) {
+      redEmpty.style.display    = w==='empty'   ? 'flex'   : 'none';
+      redSpinner.style.display  = w==='spinner' ? 'flex'   : 'none';
+      redResultsEl.style.display= w==='results' ? 'flex'   : 'none';
+    }
+
+    redDropZone.addEventListener('dragover',  e => { e.preventDefault(); redDropZone.classList.add('drag-over'); });
+    redDropZone.addEventListener('dragleave', ()  => redDropZone.classList.remove('drag-over'));
+    redDropZone.addEventListener('drop', e => {
+      e.preventDefault(); redDropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files[0]) setReduceFile(e.dataTransfer.files[0]);
+    });
+    redDropZone.addEventListener('click', () => redFileInput.click());
+    redFileInput.addEventListener('change', () => { if (redFileInput.files[0]) setReduceFile(redFileInput.files[0]); });
+    redFileClear.addEventListener('click', e => { e.stopPropagation(); clearReduceFile(); });
+
+    function setReduceFile(f) {
+      red.file = f;
+      redFileBadgeName.textContent = f.name;
+      redFileBadge.classList.add('visible');
+      btnReduce.disabled = false;
+      const reader = new FileReader();
+      reader.onload = ev => { redBeforeImg.src = ev.target.result; };
+      reader.readAsDataURL(f);
+      redFilenameEl.textContent = f.name;
+      showReducePanel('empty');
+      redExportRow.style.display = 'none';
+    }
+
+    function clearReduceFile() {
+      red.file=null; red.palette=[]; red.imageB64=null;
+      redFileInput.value=''; redFileBadge.classList.remove('visible');
+      btnReduce.disabled=true;
+      redExportRow.style.display='none';
+      redExportBtns.forEach(b => b.disabled=true);
+      showReducePanel('empty');
+    }
+
+    // Dither segmented control
+    redDitherCtrl.querySelectorAll('.seg-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        redDitherCtrl.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentDither = btn.dataset.dither;
+      });
+    });
+
+    btnReduce.addEventListener('click', doReduce);
+
+    async function doReduce() {
+      if (!red.file) return;
+      showReducePanel('spinner');
+      btnReduce.classList.add('loading');
+      const fd = new FormData();
+      fd.append('image', red.file);
+      fd.append('colors', redColorsIn.value || '16');
+      fd.append('dither', currentDither);
+      try {
+        const res  = await fetch('/api/reduce', { method:'POST', body:fd });
+        const data = await res.json();
+        if (!res.ok) { showToast(data.error||'Reduce failed.'); showReducePanel(red.imageB64?'results':'empty'); return; }
+        red.palette  = data.palette;
+        red.imageB64 = data.image_png;
+        redAfterImg.src = 'data:image/png;base64,' + data.image_png;
+        redStripImg.src = 'data:image/png;base64,' + data.strip_png;
+        redColorCount.textContent = data.color_count;
+        redPxCount.textContent    = data.total_pixels.toLocaleString() + ' px';
+        renderReduceSwatches();
+        showReducePanel('results');
+        redExportRow.style.display = 'block';
+        redExportBtns.forEach(b => b.disabled=false);
+      } catch { showToast('Network error — please try again.'); showReducePanel(red.imageB64?'results':'empty'); }
+      finally   { btnReduce.classList.remove('loading'); }
+    }
+
+    function renderReduceSwatches() {
+      redSwatchGrid.innerHTML = '';
+      red.palette.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'swatch-card';
+        card.innerHTML =
+          `<div class="swatch-color" style="background:${c.hex}"></div>` +
+          `<div class="swatch-info"><span class="swatch-hex">${c.hex}</span><span class="swatch-pct">${(c.frequency*100).toFixed(1)}%</span></div>`;
+        card.addEventListener('click', () => {
+          navigator.clipboard.writeText(c.hex).catch(()=>{});
+          card.classList.add('copied');
+          setTimeout(() => card.classList.remove('copied'), 700);
+          setAccent(c.hex);
+        });
+        redSwatchGrid.appendChild(card);
+      });
+    }
+
+    btnRedDownload.addEventListener('click', () => {
+      if (!red.imageB64) return;
+      const a = document.createElement('a');
+      a.href = 'data:image/png;base64,' + red.imageB64;
+      a.download = 'reduced.png';
+      a.click();
+    });
+
+    redExportBtns.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        if (!red.palette.length) return;
+        const fmt = btn.dataset.reduceExport;
+        if (fmt==='png') { const a=document.createElement('a'); a.href=redStripImg.src; a.download='palette.png'; a.click(); return; }
+        try {
+          const res=await fetch('/api/build/export',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({palette:red.palette,format:fmt})});
+          if (!res.ok) { const e=await res.json().catch(()=>({})); showToast(e.error||'Export failed.'); return; }
+          const blob=await res.blob(),url=URL.createObjectURL(blob),a=document.createElement('a');
+          a.href=url; a.download=`palette.${fmt}`; a.click(); URL.revokeObjectURL(url);
+        } catch { showToast('Export failed.'); }
+      });
     });
   </script>
 </body>
