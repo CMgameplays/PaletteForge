@@ -26,6 +26,7 @@ import os
 import socket
 import threading
 import webbrowser
+import zipfile
 from collections import Counter
 
 from flask import Flask, jsonify, render_template, request, send_file
@@ -68,6 +69,20 @@ def _rgb_to_hsv(r: int, g: int, b: int) -> tuple:
     else:
         h = (60.0 * ((rf - gf) / df) + 240.0) % 360.0
     return h, (0.0 if mx == 0 else df / mx), mx
+
+
+def _hex_to_rgb(hex_str: str) -> tuple:
+    h = hex_str.lstrip("#")
+    return (int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16))
+
+
+def _apply_remap(img: Image.Image, remap_map: dict) -> Image.Image:
+    """Replace exact-match colors in `img` using remap_map: {(r,g,b): (r,g,b)}."""
+    pixels = list(img.getdata())
+    new_pixels = [remap_map.get(p, p) for p in pixels]
+    result = Image.new("RGB", img.size)
+    result.putdata(new_pixels)
+    return result
 
 
 def _build_strip(palette: list, swatch: int = 48) -> bytes:
@@ -214,6 +229,108 @@ def api_build_export():
                          as_attachment=True, download_name="palette.png")
 
     return jsonify(error=f"Unknown format '{fmt}'. Use: hex, gpl, json, png."), 400
+
+
+# ── Tab 2: Swap ───────────────────────────────────────────────────────────────
+
+@app.route("/api/swap", methods=["POST"])
+@limiter.limit("20/minute")
+def api_swap():
+    file = request.files.get("image")
+    if not file or not file.filename:
+        return jsonify(error="No image uploaded."), 400
+
+    if file.content_type and file.content_type not in ALLOWED_MIME:
+        return jsonify(error="Unsupported file type. Please upload PNG, JPG, WEBP, or GIF."), 400
+
+    try:
+        remap_list = _json.loads(request.form.get("remap", "[]"))
+    except Exception:
+        return jsonify(error="Invalid remap data."), 400
+
+    if not remap_list:
+        return jsonify(error="No remap pairs provided."), 400
+
+    try:
+        img = _open_image(file.stream)
+    except Exception:
+        return jsonify(error="Could not open image."), 400
+
+    remap_map = {}
+    for pair in remap_list:
+        try:
+            remap_map[_hex_to_rgb(pair["from"])] = _hex_to_rgb(pair["to"])
+        except Exception:
+            continue
+
+    if not remap_map:
+        return jsonify(error="No valid remap pairs."), 400
+
+    result = _apply_remap(img, remap_map)
+    buf = io.BytesIO()
+    result.save(buf, "PNG")
+    buf.seek(0)
+    return send_file(buf, mimetype="image/png",
+                     as_attachment=True, download_name="remapped.png")
+
+
+@app.route("/api/swap/batch", methods=["POST"])
+@limiter.limit("5/minute")
+def api_swap_batch():
+    zfile = request.files.get("zip")
+    if not zfile or not zfile.filename:
+        return jsonify(error="No ZIP file uploaded."), 400
+
+    try:
+        remap_list = _json.loads(request.form.get("remap", "[]"))
+    except Exception:
+        return jsonify(error="Invalid remap data."), 400
+
+    if not remap_list:
+        return jsonify(error="No remap pairs provided."), 400
+
+    remap_map = {}
+    for pair in remap_list:
+        try:
+            remap_map[_hex_to_rgb(pair["from"])] = _hex_to_rgb(pair["to"])
+        except Exception:
+            continue
+
+    if not remap_map:
+        return jsonify(error="No valid remap pairs."), 400
+
+    try:
+        in_zip = zipfile.ZipFile(zfile.stream)
+    except Exception:
+        return jsonify(error="Could not read ZIP file."), 400
+
+    IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".gif"}
+    out_buf = io.BytesIO()
+    processed = 0
+
+    with zipfile.ZipFile(out_buf, "w", zipfile.ZIP_DEFLATED) as out_zip:
+        for name in in_zip.namelist():
+            ext = os.path.splitext(name)[1].lower()
+            if ext not in IMAGE_EXTS:
+                continue
+            try:
+                with in_zip.open(name) as f:
+                    img = _open_image(f)
+                result = _apply_remap(img, remap_map)
+                img_buf = io.BytesIO()
+                result.save(img_buf, "PNG")
+                out_zip.writestr(os.path.splitext(name)[0] + ".png",
+                                 img_buf.getvalue())
+                processed += 1
+            except Exception:
+                continue  # skip unreadable entries
+
+    if processed == 0:
+        return jsonify(error="No valid images found in ZIP."), 400
+
+    out_buf.seek(0)
+    return send_file(out_buf, mimetype="application/zip",
+                     as_attachment=True, download_name="remapped_batch.zip")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
