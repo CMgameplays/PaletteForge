@@ -23,32 +23,28 @@ import base64
 import io
 import json as _json
 import os
+import sys
 import socket
 import threading
 import webbrowser
 import zipfile
 from collections import Counter
 
-from flask import Flask, jsonify, render_template, request, send_file
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+
+from flask import Blueprint, jsonify, render_template, request, send_file
 from PIL import Image, ImageDraw
 
-# ── App setup ─────────────────────────────────────────────────────────────────
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-app = Flask(__name__, template_folder=os.path.join(BASE_DIR, "templates"))
-app.config["SECRET_KEY"]         = os.environ.get("SECRET_KEY", os.urandom(32))
-app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024   # 50 MB
-
-limiter = Limiter(
-    app=app,
-    key_func=get_remote_address,
-    default_limits=[],
-    storage_uri="memory://",
-)
+try:
+    from shared.limiter import limiter
+except ImportError:
+    from flask_limiter import Limiter
+    from flask_limiter.util import get_remote_address
+    limiter = Limiter(get_remote_address, storage_uri="memory://")
 
 ALLOWED_MIME = {"image/png", "image/jpeg", "image/webp", "image/gif"}
+
+bp = Blueprint("paletteforge", __name__, template_folder="templates")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -111,14 +107,14 @@ def _open_image(stream) -> Image.Image:
 # ROUTES
 # ══════════════════════════════════════════════════════════════════════════════
 
-@app.route("/")
+@bp.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("paletteforge/index.html")
 
 
 # ── Tab 1: Extract ────────────────────────────────────────────────────────────
 
-@app.route("/api/extract", methods=["POST"])
+@bp.route("/api/extract", methods=["POST"])
 @limiter.limit("30/minute")
 def api_extract():
     file = request.files.get("image")
@@ -178,7 +174,7 @@ def api_extract():
 
 # ── Tab 1+3: Export palette ───────────────────────────────────────────────────
 
-@app.route("/api/build/export", methods=["POST"])
+@bp.route("/api/build/export", methods=["POST"])
 @limiter.limit("30/minute")
 def api_build_export():
     try:
@@ -233,7 +229,7 @@ def api_build_export():
 
 # ── Tab 2: Swap ───────────────────────────────────────────────────────────────
 
-@app.route("/api/swap", methods=["POST"])
+@bp.route("/api/swap", methods=["POST"])
 @limiter.limit("20/minute")
 def api_swap():
     file = request.files.get("image")
@@ -274,7 +270,7 @@ def api_swap():
                      as_attachment=True, download_name="remapped.png")
 
 
-@app.route("/api/swap/batch", methods=["POST"])
+@bp.route("/api/swap/batch", methods=["POST"])
 @limiter.limit("5/minute")
 def api_swap_batch():
     zfile = request.files.get("zip")
@@ -335,7 +331,7 @@ def api_swap_batch():
 
 # ── Tab 4: Reduce ────────────────────────────────────────────────────────────
 
-@app.route("/api/reduce", methods=["POST"])
+@bp.route("/api/reduce", methods=["POST"])
 @limiter.limit("20/minute")
 def api_reduce():
     file = request.files.get("image")
@@ -411,6 +407,12 @@ def _free_port() -> int:
 
 
 if __name__ == "__main__":
+    from flask import Flask
+    standalone = Flask(__name__)
+    standalone.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", os.urandom(32))
+    standalone.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
+    standalone.register_blueprint(bp, url_prefix="/")
+    limiter.init_app(standalone)
     port = int(os.environ.get("PORT", _free_port()))
     threading.Timer(0.9, lambda: webbrowser.open(f"http://127.0.0.1:{port}")).start()
-    app.run(host="0.0.0.0", port=port, debug=False)
+    standalone.run(host="0.0.0.0", port=port, debug=False)
